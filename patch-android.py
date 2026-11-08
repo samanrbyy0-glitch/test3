@@ -11,12 +11,14 @@ s = open(mp, encoding="utf8").read()
 
 perms = ["USE_FULL_SCREEN_INTENT", "FOREGROUND_SERVICE", "FOREGROUND_SERVICE_MEDIA_PLAYBACK",
          "WAKE_LOCK", "VIBRATE", "RECEIVE_BOOT_COMPLETED", "SCHEDULE_EXACT_ALARM",
-         "USE_EXACT_ALARM", "POST_NOTIFICATIONS", "READ_CONTACTS"]
+         "USE_EXACT_ALARM", "POST_NOTIFICATIONS", "READ_CONTACTS", "RECORD_AUDIO"]
 add = ""
 for p in perms:
     line = '<uses-permission android:name="android.permission.%s" />' % p
     if line not in s and ('android.permission.%s"' % p) not in s:
         add += "    " + line + "\n"
+if "RecognitionService" not in s:
+    add += '    <queries><intent><action android:name="android.speech.RecognitionService" /></intent></queries>\n'
 s = s.replace("<application", add + "    <application", 1)
 
 comp = '''
