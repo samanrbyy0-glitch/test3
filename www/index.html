@@ -128,6 +128,7 @@ main{min-width:0;padding:0 0 70px;margin:0;display:flex;flex-direction:column;ga
   font-size:.62rem;line-height:17px;font-weight:700;text-align:center;box-shadow:0 0 0 2px var(--bg)
 }
 .side>.ic{margin-top:auto}
+.side>#menu{margin-top:0;font-size:1.3rem}
 .side #lt,.side #em{width:48px;height:48px;padding:0;border-radius:16px;display:grid;place-items:center;line-height:0;border:1px solid var(--line)}
 .side #lt.on{background:rgba(62,230,164,.15);color:var(--acc);border-color:rgba(62,230,164,.4)}
 .side #em.on{background:rgba(255,107,107,.14);color:var(--no);border-color:rgba(255,107,107,.4)}
@@ -341,7 +342,7 @@ main{min-width:0;padding:0 0 70px;margin:0;display:flex;flex-direction:column;ga
 .dn{text-decoration:line-through;color:var(--mute)}
 
 /* ---------- menu / overlays ---------- */
-#mn,#st,#st2,#wy,#wm,#ins,#bk,#rq,#lw,#pn,#ag,#agc,#gd,#ed,#tp,#ov{
+#mn,#st,#st2,#wy,#wm,#ins,#bk,#rq,#lw,#pn,#ag,#agc,#gcc,#gd,#ed,#tp,#ov{
   display:none;position:fixed;inset:0;z-index:50;padding:18px;
   background:rgba(2,8,5,.62);backdrop-filter:blur(8px);
   align-items:center;justify-content:center;
@@ -352,16 +353,16 @@ main{min-width:0;padding:0 0 70px;margin:0;display:flex;flex-direction:column;ga
 .mi:hover,.mi:active{background:var(--card2)}
 .mi+.mi{box-shadow:inset 0 1px 0 var(--line)}
 .mi:last-child{margin-top:6px;border:1px solid var(--line2)}
-#mag{position:relative;overflow:hidden}
-#mag.hold::after{content:"";position:absolute;bottom:0;inset-inline-start:0;height:2px;width:0;background:var(--acc);animation:holdbar 5s linear forwards}
+#mag,#mgd{position:relative;overflow:hidden}
+#mag.hold::after,#mgd.hold::after{content:"";position:absolute;bottom:0;inset-inline-start:0;height:2px;width:0;background:var(--acc);animation:holdbar 5s linear forwards}
 @keyframes holdbar{from{width:0}to{width:100%}}
-#ag .head h2{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+#ag .head h2,#gd .head h2{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 #mn .lt{width:100%;justify-content:center}
 .ck{display:flex;gap:10px;align-items:center;padding:9px 4px;border-top:1px solid var(--line);font-size:.9rem}
 .ck input{width:20px;height:20px;flex-shrink:0;accent-color:var(--acc)}
 .ovh{max-height:60vh;overflow:auto;white-space:pre-wrap;line-height:1.9;font-size:.9rem}
 
-#ov .card,#tp .card,#ed .card,#st .card,#st2 .card,#wy .card,#wm .card,#ins .card,#bk .card,#rq .card,#lw .card,#pn .card,#agc .card,#gd .card{
+#ov .card,#tp .card,#ed .card,#st .card,#st2 .card,#wy .card,#wm .card,#ins .card,#bk .card,#rq .card,#lw .card,#pn .card,#agc .card,#gcc .card,#gd .card{
   width:100%;max-width:400px;max-height:88vh;overflow:auto;margin:0;
   background:var(--solid);backdrop-filter:none;border-color:var(--line2);box-shadow:var(--shadow);
   animation:pop .22s cubic-bezier(.2,.8,.2,1);
@@ -539,8 +540,13 @@ main{min-width:0;padding:0 0 70px;margin:0;display:flex;flex-direction:column;ga
 .goldgrid b{font-size:.95rem;font-weight:800;direction:ltr;unicode-bidi:isolate;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .goldgrid b.up{color:var(--acc)}.goldgrid b.down{color:var(--no)}.goldgrid b.flat{color:var(--ink2)}
 .gspark{display:block;width:100%;height:64px;margin:12px 0 4px}
+.gcandle{display:block;width:100%;height:130px;margin:12px 0 4px;direction:ltr}
 .goldfx{display:flex;gap:8px;margin-top:8px}
 .goldfx input{flex:1;min-width:0;border:1px solid var(--line);background:var(--card2);color:var(--ink);border-radius:13px;padding:9px 12px;font-size:.9rem;direction:ltr;text-align:end}
+.goldts{font-size:.66rem;color:var(--mute);line-height:1.6;padding:0 2px;background:none;border:0}
+.goldgrid>.goldts{background:none;border:0;border-radius:0;padding:0 2px;display:block}
+.goldgrid>.goldts span{font-size:.66rem}
+.goldts b{font-size:.66rem;font-weight:600;direction:ltr;unicode-bidi:isolate}
 .goldt{font-size:.8rem;color:var(--ink2);line-height:1.9;margin-top:8px}
 #gd .lt[disabled]{opacity:.5;pointer-events:none}
 
@@ -550,14 +556,14 @@ main{min-width:0;padding:0 0 70px;margin:0;display:flex;flex-direction:column;ga
 
 /* ---------- responsive ---------- */
 @media(max-width:899px){
-  body{padding-bottom:96px;background-attachment:scroll}
+  body{padding-top:calc(74px + env(safe-area-inset-top,0));padding-bottom:16px;background-attachment:scroll}
   .app{grid-template-columns:1fr;padding:10px 10px 0;gap:12px}
   .side{
-    position:fixed;top:auto;bottom:calc(10px + env(safe-area-inset-bottom,0));left:10px;right:10px;
+    position:fixed;bottom:auto;top:calc(8px + env(safe-area-inset-top,0));left:10px;right:10px;
     height:auto;width:auto;flex-direction:row;align-items:center;justify-content:space-between;
     padding:7px 9px;border-radius:22px;gap:4px;
     background:color-mix(in srgb,var(--solid) 82%,transparent);backdrop-filter:blur(22px);
-    box-shadow:0 -8px 40px -18px rgba(0,0,0,.75),var(--shadow-sm);
+    box-shadow:0 8px 40px -18px rgba(0,0,0,.75),var(--shadow-sm);
   }
   .side .logo{display:none}
   .side nav{flex-direction:row;gap:2px;flex:1;justify-content:space-between;align-items:center}
@@ -565,7 +571,7 @@ main{min-width:0;padding:0 0 70px;margin:0;display:flex;flex-direction:column;ga
   .side #lt,.side #em{width:42px;height:42px;border-radius:14px}
   .side>.ic{width:42px;height:42px;border-radius:14px;margin:0}
   main{padding-bottom:6px}
-  .tb{top:6px;padding:6px;border-radius:18px;gap:6px}
+  .tb{top:calc(72px + env(safe-area-inset-top,0));padding:6px;border-radius:18px;gap:6px}
   .seg button{width:34px;height:34px;border-radius:11px;font-size:.92rem}
   .sq{height:38px;padding:0 12px;font-size:.88rem}
   .bell{width:38px;height:38px;border-radius:14px}
@@ -583,7 +589,7 @@ main{min-width:0;padding:0 0 70px;margin:0;display:flex;flex-direction:column;ga
   .colM,.colS{display:flex;flex-direction:column;gap:12px;min-width:0}
   .colS{order:-1}
   #goalc,#calc{order:9}
-  #edbar{bottom:calc(78px + env(safe-area-inset-bottom,0))}
+  #edbar{bottom:calc(18px + env(safe-area-inset-bottom,0))}
   #ag .card{height:100%;max-height:none;border-radius:24px;padding:14px}
   #ag{padding:10px}
   #mn{padding:60px 12px 96px}
@@ -605,20 +611,20 @@ main{min-width:0;padding:0 0 70px;margin:0;display:flex;flex-direction:column;ga
 #gd .goldlvh span{font-size:.72rem;color:var(--mute);font-weight:700}
 #gd .goldlvs{display:flex;gap:4px}
 #gd .goldlvs .lt{padding:4px 10px;font-size:.72rem;min-height:0}
-#gd .goldlv{display:flex;flex-direction:column;gap:4px}
-#gd .lvr{display:flex;align-items:center;justify-content:space-between;padding:7px 12px;border-radius:12px;background:var(--card2);border:1px solid var(--line)}
-#gd .lvr b{font-size:.92rem;font-weight:800;direction:ltr;unicode-bidi:isolate}
-#gd .lvr small{font-size:.7rem;color:var(--mute);direction:ltr;unicode-bidi:isolate}
+#gd .goldlv{display:flex;flex-direction:column;gap:2px}
+#gd .lvr{display:flex;align-items:center;justify-content:space-between;padding:3px 8px;border-radius:9px;background:var(--card2);border:1px solid var(--line)}
+#gd .lvr b{font-size:.7rem;font-weight:800;direction:ltr;unicode-bidi:isolate}
+#gd .lvr small{font-size:.58rem;color:var(--mute);direction:ltr;unicode-bidi:isolate}
 #gd .lvr.near{border-color:var(--warn);box-shadow:inset 0 0 0 1px var(--warn)}
 #gd .lvr.near b{color:var(--warn)}
 #gd .lvr.now{background:transparent;border-style:dashed;border-color:var(--line2)}
-#gd .lvr.now b{color:var(--ink2);font-size:.8rem}
+#gd .lvr.now b{color:var(--ink2);font-size:.64rem}
 
 .daily-root{display:contents}
 </style></head><body><div class="daily-root">
-<div class="app"><aside class="side"><div class="logo" aria-hidden="true">◈</div><nav id="snav"><button class="ic on" id="sb1" aria-label="برنامه روزانه" title="برنامه روزانه">⌂</button><button class="ic" id="sb2" aria-label="کارهای من" title="کارهای من">☑</button><button class="ic" id="sb3" aria-label="تحلیل و روند" title="تحلیل و روند">📊</button></nav><button class="ic" id="bdo" aria-label="تغییرات بدن" title="تغییرات بدن">◐</button></aside><main>
+<div class="app"><aside class="side"><button class="ic" id="menu" aria-label="منو" title="منو">✦</button><nav id="snav"><button class="ic on" id="sb1" aria-label="برنامه روزانه" title="برنامه روزانه">⌂</button><button class="ic" id="sb2" aria-label="کارهای من" title="کارهای من">☑</button><button class="ic" id="sb3" aria-label="تحلیل و روند" title="تحلیل و روند">📊</button></nav><button class="ic" id="bdo" aria-label="تغییرات بدن" title="تغییرات بدن">◐</button></aside><main>
 <div class="tb"><div class="seg"><button id="tmD" aria-label="تم تیره">☾</button><button id="tmL" aria-label="تم روشن">☀</button></div><input id="sq" class="sq" type="search" placeholder="جستجوی کار…"><button class="bell" id="bell" aria-label="کارهای مانده">🔔<b id="bb"></b></button></div>
-<div class="head"><div style="display:flex;align-items:center;gap:10px"><button class="plus alt" id="menu" aria-label="منو">✦</button><h1 id="ph1">لیست کارها</h1></div><div style="display:flex;gap:8px"><button class="plus" id="plus" aria-label="افزودن کار">+</button></div></div><div class="sub" id="day"></div>
+<div class="head"><div style="display:flex;align-items:center;gap:10px"><h1 id="ph1">لیست کارها</h1></div><div style="display:flex;gap:8px"><button class="plus" id="plus" aria-label="افزودن کار">+</button></div></div><div class="sub" id="day"></div>
 <div class="tabs"><button id="tab1" class="on">برنامه روزانه</button><button id="tab2">کارهای من</button><button id="tab3">تغییرات بدن</button></div>
 <div id="v1">
 <div class="quote" id="quotec"><div id="quote"></div><h2 style="margin:16px 0 2px;font-size:1rem">حوزه‌های رشد</h2><div class="chips" id="chips" style="margin-top:10px"></div><div class="cpanel"><div class="cph"><button class="pill" id="cwp">هفته قبل</button><div id="cht">کندل هفتگی</div><button class="pill" id="cwn">هفته بعد</button></div><svg id="cdl" viewBox="0 0 340 176"></svg><div class="cap" id="cdr"></div><div class="cap lg"><i style="background:#2bf59b"></i>بالای ۷۵٪<i style="background:#ffb02e"></i>۵۰ تا ۷۵٪<i style="background:#ff6b5e"></i>زیر ۵۰٪ · ┄ هفته قبل</div></div></div>
@@ -669,27 +675,35 @@ main{min-width:0;padding:0 0 70px;margin:0;display:flex;flex-direction:column;ga
 </main></div>
 <div id="ag"><div class="card"><div class="head"><h2>🤖 ایجنت</h2><div style="display:flex;gap:6px"><button class="lt" id="agclr" title="پاک کردن گفتگو" aria-label="پاک کردن گفتگو">🧹</button><button class="lt" id="agx">بستن</button></div></div><div id="agl"></div><div id="agq"><button class="lt" data-q="یه گزارش هفتگی از ۷ روز اخیرم بنویس">📅 گزارش هفتگی</button><button class="lt" data-q="بهانه‌های پرتکرار این ماهم رو تحلیل کن و راه‌حل پیشنهاد بده">🔍 تحلیل بهانه‌ها</button><button class="lt" data-q="کارهای عقب‌افتاده‌ام رو ببین و برای هر کدوم قدم‌های کوچیک‌تر پیشنهاد بده">🪜 شکستن کار عقب‌افتاده</button><button class="lt" data-q="قیمت اونس طلای جهانی الان چنده؟ به دلار و گرم بگو و تغییر ۲۴ ساعته‌اش رو هم بگو">🥇 قیمت طلا</button></div><div class="add2"><input id="agi" placeholder="بنویس..."><button class="lt" id="agm2" title="دستور صوتی">🎤</button><button class="lt" id="agsp" title="خواندن جواب با صدا">🔇</button><button class="lt on" id="ags">بفرست</button></div></div></div>
 <div id="agc"><div class="card"><h2>⚙️ تنظیمات ایجنت</h2><div class="pc">آدرس سرور و توکن دسترسی ایجنت. این مقادیر فقط روی همین دستگاه ذخیره می‌شوند و به فایل پشتیبان هم منتقل می‌شوند.</div><input id="agcu" class="reason" dir="ltr" autocomplete="off" placeholder="https://your-worker.workers.dev"><input id="agct" class="reason" dir="ltr" autocomplete="off" placeholder="App token"><div class="head" style="margin-top:10px"><button class="lt on" id="agcs">ذخیره</button><button class="lt" id="agctest">تست اتصال</button></div><div id="agcm" class="pc"></div><div class="head" style="margin-top:12px"><button class="lt" id="agcx">بستن</button></div></div></div>
+<div id="gcc"><div class="card"><h2>⚙️ تنظیمات نمودار طلا</h2><div class="pc">آدرس Worker کندل‌ها و رمز APP_TOKEN آن. این مقادیر فقط روی همین دستگاه ذخیره می‌شوند.</div><input id="gccu" class="reason" dir="ltr" autocomplete="off" placeholder="https://gold-candles.your-name.workers.dev"><input id="gcct" class="reason" dir="ltr" autocomplete="off" placeholder="App token"><div class="head" style="margin-top:10px"><button class="lt on" id="gccs">ذخیره</button><button class="lt" id="gcctest">تست اتصال</button></div><div id="gccm" class="pc"></div><div class="head" style="margin-top:12px"><button class="lt" id="gccx">بستن</button></div></div></div>
 <div id="gd"><div class="card">
  <div class="head"><h2>🥇 اونس طلا</h2><button class="lt" id="gdx">بستن</button></div>
- <div class="goldbig"><b id="gdusd">—</b><small>دلار / اونس</small></div>
+ <div class="goldbig"><b id="gdusd">—</b><small>دلار / اونس · TradingView</small></div>
  <div class="goldgrid">
   <div><span>تغییر ۲۴ ساعت</span><b id="gdc">—</b></div>
   <div><span>تغییر ۷ روز</span><b id="gdc7">—</b></div>
-  <div style="grid-column:1/-1"><span>آخرین به‌روزرسانی</span><b id="gdts" style="font-size:.82rem">—</b></div>
+  <div><span>هر گرم (دلار)</span><b id="gdg">—</b></div>
+  <div><span>بازگشایی امروز</span><b id="gdopen">—</b></div>
+  <div><span>سقف امروز</span><b id="gdhigh">—</b></div>
+  <div><span>کف امروز</span><b id="gdlow">—</b></div>
+  <div class="goldts" style="grid-column:1/-1"><span>آخرین به‌روزرسانی</span>: <b id="gdts">—</b></div>
  </div>
  <div class="goldlvh"><span id="gdlvt">نقاط رند اونس</span><div class="goldlvs" id="gdlvs"><button class="lt on" data-st="0">خودکار</button><button class="lt" data-st="10">۱۰</button><button class="lt" data-st="20">۲۰</button><button class="lt" data-st="50">۵۰</button></div></div>
  <div class="goldlv" id="gdlv"></div>
+ <div class="goldlvh"><span>نمودار</span><div class="goldlvs" id="gdivs"><button class="lt" data-iv="5">۵ دقیقه</button><button class="lt on" data-iv="15">۱۵ دقیقه</button><button class="lt" data-iv="30">۳۰ دقیقه</button></div></div>
  <div id="gdspark"></div>
- <div class="pc" id="gdmsg">اونس از TradingView (PEPPERSTONE:XAUUSD) و دلار و گرم طلا از TGJU، هر ۴۵ ثانیه خودکار به‌روز می‌شود.</div>
+ <div class="pc" id="gdmsg">قیمت اونس از TradingView (PEPPERSTONE:XAUUSD) و دلار و طلای ۱۸ از TGJU؛ هر ۴۵ ثانیه خودکار به‌روز می‌شود.</div>
  <div class="head" style="margin-top:10px"><button class="lt on" id="gdr">↻ به‌روزرسانی</button><button class="lt" id="gdclr">پاک کردن تاریخچه</button></div>
  <div class="pc" style="margin-top:12px">قیمت‌های تومانی از TGJU (خودکار)</div>
  <div class="goldgrid">
   <div><span>دلار (تومان)</span><b id="gdfxv">—</b></div>
   <div><span>هر گرم طلای ۱۸</span><b id="gdg18">—</b></div>
-  <div><span>هر گرم طلای ۲۴</span><b id="gdg24">—</b></div>
-  <div><span>آخرین به‌روزرسانی TGJU</span><b id="gdxts" style="font-size:.82rem">—</b></div>
  </div>
  <div class="goldt" id="gdto"></div>
+ <div class="goldts"><span>آخرین به‌روزرسانی TGJU</span>: <b id="gdxts">—</b></div>
+ <div class="pc" style="margin-top:10px">نرخ دستی دلار (اگر TGJU در دسترس نبود)</div>
+ <div class="goldfx"><input id="gdfx" type="number" inputmode="decimal" placeholder="مثلاً ۹۵۰۰۰"><button class="lt" id="gdfxs">ذخیره</button></div>
+ <div class="pc" id="gdfxm"></div>
 </div></div>
 <div id="mn"><div class="card"><button class="mi" id="med">✏️ ویرایش</button><button class="mi" id="mst">روز سبک</button><button class="mi" id="min">📈 آمار کامل</button><button class="mi" id="mgd">🥇 اونس طلا</button><button class="mi" id="man">📊 تحلیل و روند</button><button class="mi" id="mwy">📊 مانع‌های تکرارشده</button><button class="mi" id="mpn">⚖️ جریمه‌های من</button><button class="mi" id="mag" title="برای تنظیمات، ۵ ثانیه نگه دار">🤖 ایجنت</button><button class="mi" id="mbk">💾 پشتیبان‌گیری و بازیابی</button><button class="lt mi" id="wk">روزهای آخر هفته</button><button class="mi" id="mtour">🧭 راهنما</button><button class="mi" id="lng">🌐 English</button></div></div>
 <div id="st"><div class="card"><h2>روز سبک</h2><div class="pc" id="std"></div><div class="pc" id="stc" style="margin:8px 0;font-weight:bold"></div><div id="stl"></div><div class="head" style="margin-top:12px"><button class="lt on" id="stx">بستن</button></div></div></div>
@@ -708,6 +722,58 @@ main{min-width:0;padding:0 0 70px;margin:0;display:flex;flex-direction:column;ga
 
 </div>
 <script>
+/**
+ * Round (psychological) price levels, following the published rule of the
+ * "Round Levels" MT4/MT5 indicator (poursamadi.com, v1.10):
+ * - Auto spacing: about 0.5% of the price, rounded to the nearest 1, 2, 2.5 or 5 × 10^n.
+ * - The auto spacing is kept until the price has moved about 20% from where it was chosen.
+ * - Manual mode uses a fixed spacing.
+ */
+
+const AUTO_PERCENT = 0.5;
+const RESELECT_MOVE = 0.2;
+const NICE = [1, 2, 2.5, 5, 10];
+
+/** Nearest "nice" number (1, 2, 2.5, 5 × 10^n) to x, compared on a log scale. */
+function niceStep(x        )         {
+  if (!(x > 0) || !isFinite(x)) return 0;
+  const pow = Math.pow(10, Math.floor(Math.log10(x)));
+  const m = x / pow;
+  let best = NICE[0] ;
+  for (const n of NICE) if (Math.abs(Math.log(m / n)) < Math.abs(Math.log(m / best))) best = n;
+  return cleanNum(best * pow);
+}
+
+function autoSpacing(price        , percent = AUTO_PERCENT)         {
+  return niceStep((price * percent) / 100);
+}
+
+                                                       
+
+/** Keeps the previous auto spacing unless the price moved more than 20% from its base price. */
+function stickyAutoStep(price        , prev                   )            {
+  if (prev && prev.step > 0 && prev.base > 0 && Math.abs(price / prev.base - 1) <= RESELECT_MOVE) return prev;
+  return { step: autoSpacing(price), base: price };
+}
+
+                                                                           
+
+/** `count` round levels above and below the price (a level equal to the price counts as below). */
+function levelsAround(price        , step        , count = 3)         {
+  if (!(price > 0) || !(step > 0)) return { above: [], below: [], nearest: 0 };
+  const floor = cleanNum(Math.floor(price / step + 1e-9) * step);
+  const below           = [];
+  const above           = [];
+  for (let i = 0; i < count; i++) below.push(cleanNum(floor - i * step));
+  for (let i = 1; i <= count; i++) above.push(cleanNum(floor + i * step));
+  const up = above[0] ;
+  const nearest = up - price < price - floor ? up : floor;
+  return { above, below, nearest };
+}
+
+function cleanNum(x        )         {
+  return Number(x.toPrecision(12));
+}
 
 window.DailyRoundLevels={stickyAutoStep,levelsAround};
 </script>
@@ -727,8 +793,14 @@ Object.assign(I18N,{
 "تکمیل":"complete","بیشترین انجام":"Most completed","بیشترین جا ماندن":"Most missed","کار":"tasks","هنوز داده‌ای نیست. کارهایت را Yes/No بزن.":"No data yet. Mark your tasks Yes/No.",
 "هنوز کاری ثبت نشده.":"No tasks logged yet.","در این دوره دلیلی برای No ثبت نشده.":"No reasons were logged for No in this period.","برای: ":"For: ",
 "تنظیمات ایجنت":"Agent settings","⚙️ تنظیمات ایجنت":"⚙️ Agent settings","تست اتصال":"Test connection","ذخیره":"Save",
-"🥇 اونس طلا":"🥇 Gold ounce","اونس طلا":"Gold ounce","دلار / اونس":"USD / ounce","هر گرم":"Per gram",
+"🥇 اونس طلا":"🥇 Gold ounce","اونس طلا":"Gold ounce","نمودار":"Chart","۵ دقیقه":"5 min","۱۵ دقیقه":"15 min","۳۰ دقیقه":"30 min","دلار / اونس":"USD / ounce","هر گرم":"Per gram",
 "تغییر ۲۴ ساعت":"24h change","تغییر ۷ روز":"7d change","آخرین به‌روزرسانی":"Last update",
+"دلار / اونس · TradingView":"USD / ounce · TradingView","هر گرم (دلار)":"Per gram (USD)",
+"بازگشایی امروز":"Today's open","سقف امروز":"Today's high","کف امروز":"Today's low",
+"دلار (تومان)":"USD (toman)","هر گرم طلای ۱۸":"18k gold per gram",
+"قیمت‌های تومانی از TGJU (خودکار)":"Toman prices from TGJU (automatic)",
+"آخرین به‌روزرسانی TGJU":"Last TGJU update",
+"نرخ دستی دلار (اگر TGJU در دسترس نبود)":"Manual USD rate (if TGJU is unavailable)",
 "قیمت تقریبی بازار جهانی (XAU/USD) است، نه قیمت خرید/فروش طلافروشی.":"Approximate global market price (XAU/USD), not a shop buy/sell quote.",
 "↻ به‌روزرسانی":"↻ Refresh","پاک کردن تاریخچه":"Clear history","ذخیره نرخ":"Save rate","مثلاً ۹۵۰۰۰":"e.g. 95000",
 "معادل تومانی (اختیاری): نرخ دلار را به تومان بنویس.":"Toman equivalent (optional): enter the USD rate in toman.",
@@ -834,7 +906,9 @@ function render(){
  if(day.e)L.innerHTML='<div class="card">'+TX("🚨 PROTOCOL ZERO ثبت شد. همه‌ی کارهای امروز کنسل است.")+'</div>';
  stats();
 }
-function pick(i,v){if(dk!==TK){showOv(LG("خطا","Error"),LG("ثبت Yes یا No فقط برای امروز امکان‌پذیره. روزهای دیگه فقط قابل مشاهده‌ن.","Yes / No can only be set for today. Other days are view-only."));return}if(day.s[i]===v)delete day.s[i];else day.s[i]=v;sv(dk,day);render()}
+function pick(i,v){
+ if(dk!==TK){showOv(LG("فقط امروز","Today only"),LG("فقط توی امروز می‌تونی Yes یا No ثبت کنی. روزهای قبل و بعد قابل تغییر نیستند.","You can only log Yes or No for today. Past and future days can't be changed."));return}
+ if(day.s[i]===v)delete day.s[i];else day.s[i]=v;sv(dk,day);render()}
 async function sched(){const D0=TD();
  if(!LN){$("msg").textContent=TX("الارم فقط داخل اپ اندروید کار می‌کند.");return}
  const AP=getAP();
@@ -1435,28 +1509,42 @@ $("mwy").onclick=()=>{$("mn").style.display="none";openWhy()};
 if(ISEN())initLang();
 
 /* ===== AGENT ===== */
-/* Migrated: the agent server now lives inside this app at /api/agent. No token is baked into the code;
-   enter it once in Agent settings (hold "🤖 Agent" for 5 seconds). A saved address that still points at
-   the old Cloudflare Worker is moved to the new built-in endpoint. */
-const AG_DEF={url:location.origin+"/api/agent",tok:""};
-const AG_LEGACY=/daily-agent\.samanrbyy0\.workers\.dev/i;
-const AG_CFG=(()=>{try{const c=JSON.parse(localStorage.getItem("agcfg"))||{};let u=String(c.url||AG_DEF.url||"").trim();if(!u||AG_LEGACY.test(u))u=AG_DEF.url;return{url:u,tok:String(c.tok||AG_DEF.tok||"").trim()}}catch(e){return{url:AG_DEF.url,tok:AG_DEF.tok}}})();
+/* The agent server is the hardened Cloudflare Worker in ./worker. The address and token are stored only
+   on this device (hold "🤖 ایجنت" for 5 seconds to change them). The old built-in /api/agent path is
+   migrated back to the Worker because Capacitor serves the app from https://localhost without that API. */
+const AG_DEF={url:"https://daily-agent.samanrbyy0.workers.dev",tok:"piu34ht09734htr3p19538ty"};
+const AG_OLD_ENDPOINT=/\/api\/agent\/?$/i;
+const AG_CFG=(()=>{try{const c=JSON.parse(localStorage.getItem("agcfg"))||{};let u=String(c.url||AG_DEF.url||"").trim();if(!u||AG_OLD_ENDPOINT.test(u))u=AG_DEF.url;return{url:u,tok:String(c.tok||AG_DEF.tok||"").trim()}}catch(e){return{url:AG_DEF.url,tok:AG_DEF.tok}}})();
 const AG={url:AG_CFG.url,tok:AG_CFG.tok,h:[],busy:false};
 try{const hs=JSON.parse(localStorage.getItem("aghist"));if(Array.isArray(hs))AG.h=hs.filter(x=>x&&x.role).slice(-30)}catch(e){}
 const O=(p,r)=>({type:"object",properties:p,required:r||[]});
-/* ---------- gold market (XAU/USD) ---------- */
+/* ---------- gold market (XAU/USD) ----------
+   Primary source: TradingView scanner, PEPPERSTONE:XAUUSD (same feed as
+   https://www.tradingview.com/symbols/XAUUSD/?exchange=PEPPERSTONE).
+   Fallbacks: CoinGecko PAXG, gold-api.com, then the Worker's /gold proxy. */
+const TV_GOLD="https://scanner.tradingview.com/symbol?symbol=PEPPERSTONE%3AXAUUSD&fields=close,change,change_abs,open,high,low,volume,update_mode,last_update_time,Perf.W,Perf.1M";
+const TV_SRC="TradingView · PEPPERSTONE";
 const GOLD={OD:31.1034768,ttl:30000,x:null,timer:0,last:null,ch24:null,ch7:null,spark:null,err:"",busy:false};
-try{const c=JSON.parse(localStorage.getItem("goldlast"));if(c&&+c.usd>0)GOLD.last={usd:+c.usd,ts:+c.ts||Date.now(),src:String(c.src||"")}}catch(e){}
+try{const c=JSON.parse(localStorage.getItem("goldlast"));if(c&&+c.usd>0){GOLD.last={usd:+c.usd,ts:+c.ts||Date.now(),src:String(c.src||""),high:+c.high||null,low:+c.low||null,open:+c.open||null,chAbs:c.chAbs==null?null:+c.chAbs};GOLD.ch24=c.ch24==null?null:+c.ch24;GOLD.ch7=c.ch7==null?null:+c.ch7}}catch(e){}
 try{const c=JSON.parse(localStorage.getItem("goldx"));if(c&&+c.fx>0)GOLD.x={fx:+c.fx,g18:+c.g18||0,g24:+c.g24||0,ts:+c.ts||0}}catch(e){}
-const goldFx=()=>GOLD.x&&GOLD.x.fx>0?GOLD.x.fx:0;
-const goldHist=()=>{try{const h=JSON.parse(localStorage.getItem("goldhist"));return Array.isArray(h)?h.filter(x=>x&&+x.u>0&&+x.t>0):[]}catch(e){return[]}};
+const goldFx=()=>{if(GOLD.x&&GOLD.x.fx>0)return GOLD.x.fx;const v=parseFloat(localStorage.getItem("goldfx"));return isFinite(v)&&v>0?v:0};
+const goldHist=()=>{
+ try{
+  let h=JSON.parse(localStorage.getItem("goldhist2"));
+  if(!Array.isArray(h)){
+   h=JSON.parse(localStorage.getItem("goldhist"));
+   if(Array.isArray(h))try{localStorage.setItem("goldhist2",JSON.stringify(h))}catch(e){}
+  }
+  return Array.isArray(h)?h.filter(x=>x&&+x.u>0&&+x.t>0):[];
+ }catch(e){return[]}
+};
 const gfmt=(n,d)=>{const x=Number(n);if(!isFinite(x))return "—";return x.toLocaleString(ISEN()?"en-US":"fa-IR",{minimumFractionDigits:d||0,maximumFractionDigits:d||0})};
 function goldMerge(points){
  const h=goldHist(),map={};
  h.concat(points).forEach(p=>{const t=Math.round(p.t/300000)*300000;map[t]=+p.u});
  const out=Object.keys(map).map(t=>({t:+t,u:map[t]})).sort((a,b)=>a.t-b.t);
- while(out.length>400)out.shift();
- try{localStorage.setItem("goldhist",JSON.stringify(out))}catch(e){}
+ while(out.length>700)out.shift();
+ try{localStorage.setItem("goldhist2",JSON.stringify(out))}catch(e){}
 }
 async function goldOne(u){
  const ctl=new AbortController(),to=setTimeout(()=>ctl.abort(),8000),h={};
@@ -1465,17 +1553,22 @@ async function goldOne(u){
   const r=await fetch(u,{headers:h,signal:ctl.signal,cache:"no-store"});
   clearTimeout(to);
   if(!r.ok)throw new Error(String(r.status));
-  const j=await r.json(),m=j&&j.market_data;
+  const j=await r.json();
   let o=null;
-  if(m&&m.current_price&&+m.current_price.usd>0){
-   const sp=((m.sparkline_7d&&m.sparkline_7d.price)||[]).map(Number).filter(x=>isFinite(x)&&x>0);
-   o={usd:+m.current_price.usd,ts:Date.parse(m.last_updated)||Date.now(),src:"CoinGecko",ch24:gNum(m.price_change_percentage_24h),ch7:gNum(m.price_change_percentage_7d),spark:sp.length>1?sp:null};
+  if(j&&+j.close>0&&"change" in j&&"change_abs" in j){
+   o={usd:+j.close,ts:Date.now(),src:TV_SRC,ch24:gNum(j.change),ch7:gNum(j["Perf.W"]),
+      high:+j.high||null,low:+j.low||null,open:+j.open||null,chAbs:gNum(j.change_abs)};
+  }else if(j&&j.market_data&&j.market_data.current_price&&+j.market_data.current_price.usd>0){
+   const m=j.market_data,sp=((m.sparkline_7d&&m.sparkline_7d.price)||[]).map(Number).filter(x=>isFinite(x)&&x>0);
+   o={usd:+m.current_price.usd,ts:Date.parse(m.last_updated)||Date.now(),src:"CoinGecko · PAXG",
+      ch24:gNum(m.price_change_percentage_24h),ch7:gNum(m.price_change_percentage_7d),spark:sp.length>1?sp:null};
    if(o.spark)goldMerge(o.spark.map((v,i)=>({t:o.ts-(o.spark.length-1-i)*3600000,u:v})));
   }else if(j&&j["pax-gold"]&&+j["pax-gold"].usd>0){
-   o={usd:+j["pax-gold"].usd,ts:(+j["pax-gold"].last_updated_at||0)*1000||Date.now(),src:"CoinGecko"};
+   o={usd:+j["pax-gold"].usd,ts:(+j["pax-gold"].last_updated_at||0)*1000||Date.now(),src:"CoinGecko · PAXG"};
   }else if(j&&(+j.usd>0||+j.price>0)){
-   o={usd:+(+j.usd||+j.price),ts:+j.ts||Date.now(),src:String(j.source||"gold-api"),ch24:gNum(j.ch24),ch7:gNum(j.ch7)};
-   if(j.fx>0)o.x={fx:+j.fx,g18:+j.g18||0,g24:+j.g24||0,ts:+j.xts||Date.now()};
+   o={usd:+(+j.usd||+j.price),ts:+j.ts||Date.parse(j.updatedAt)||Date.now(),
+      src:String(j.source||"gold-api.com"),ch24:gNum(j.ch24),ch7:gNum(j.ch7),
+      high:+j.high||null,low:+j.low||null,open:+j.open||null,chAbs:gNum(j.chAbs)};
   }
   if(!o||!(o.usd>100&&o.usd<1e6))throw new Error("bad data");
   return o;
@@ -1484,10 +1577,10 @@ async function goldOne(u){
 function gNum(v){const x=parseFloat(v);return isFinite(x)?x:null}
 function goldSources(){
  const w=String(AG.url||"").replace(/\/+$/,"");
- return {direct:[
+ return {tv:TV_GOLD,direct:[
   "https://api.coingecko.com/api/v3/coins/pax-gold?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=true",
   "https://api.gold-api.com/price/XAU"
- ],proxy:/^https?:\/\//.test(w)?w+"/prices":null};
+ ],proxy:/^https?:\/\//.test(w)?w+"/gold":null};
 }
 const gDigits=v=>String(v==null?"":v).replace(/[۰-۹]/g,d=>"۰۱۲۳۴۵۶۷۸۹".indexOf(d)).replace(/[٠-٩]/g,d=>"٠١٢٣٤٥٦٧٨٩".indexOf(d));
 const gRial=v=>{const x=parseFloat(gDigits(v).replace(/[^\d.]/g,""));return isFinite(x)?x:0};
@@ -1511,10 +1604,11 @@ async function goldFetch(force){
  try{
   const src=goldSources();
   let o=null;
-  if(src.proxy){try{o=await goldOne(src.proxy)}catch(e){o=null}}
+  if(src.tv){try{o=await goldOne(src.tv)}catch(e){o=null}}
   if(!o){try{o=await Promise.any(src.direct.map(u=>goldOne(u)))}catch(e){o=null}}
+  if(!o&&src.proxy){try{o=await goldOne(src.proxy)}catch(e){o=null}}
   if(!o)throw new Error("network");
-  GOLD.last={usd:o.usd,ts:o.ts,src:o.src};
+  GOLD.last={usd:o.usd,ts:o.ts,src:o.src,high:o.high||null,low:o.low||null,open:o.open||null,chAbs:o.chAbs==null?null:o.chAbs};
   GOLD.ch24=o.ch24==null?null:o.ch24;GOLD.ch7=o.ch7==null?null:o.ch7;
   if(o.spark)GOLD.spark=o.spark;
   goldMerge([{t:o.ts,u:o.usd}]);
@@ -1522,7 +1616,7 @@ async function goldFetch(force){
   let x=o.x||null;
   if(!x)x=await tgjuDirect();
   if(x&&x.fx>0){GOLD.x=x;try{localStorage.setItem("goldx",JSON.stringify(x))}catch(e){}}
-  try{localStorage.setItem("goldlast",JSON.stringify(GOLD.last))}catch(e){}
+  try{localStorage.setItem("goldlast",JSON.stringify(Object.assign({},GOLD.last,{ch24:GOLD.ch24,ch7:GOLD.ch7})))}catch(e){}
  }catch(e){GOLD.err="network"}
  GOLD.busy=false;goldPaint();goldSpark();goldToman();
  return GOLD.last;
@@ -1545,6 +1639,10 @@ function gPaintCh(el,v){
 function goldPaint(){
  const d=GOLD.last;
  $("gdusd").textContent=d?gfmt(d.usd,2):"—";
+ $("gdg").textContent=d?gfmt(d.usd/GOLD.OD,2):"—";
+ $("gdopen").textContent=d&&d.open?gfmt(d.open,2):"—";
+ $("gdhigh").textContent=d&&d.high?gfmt(d.high,2):"—";
+ $("gdlow").textContent=d&&d.low?gfmt(d.low,2):"—";
  gPaintCh($("gdc"),GOLD.ch24!=null?GOLD.ch24:goldChange(24));
  gPaintCh($("gdc7"),GOLD.ch7!=null?GOLD.ch7:goldChange(168));
  $("gdts").textContent=d?fmt({month:"short",day:"numeric",hour:"2-digit",minute:"2-digit"},new Date(d.ts)):"—";
@@ -1570,39 +1668,116 @@ function goldLevels(){
  el.innerHTML=r.above.slice().reverse().map(v=>row(v,"ab")).join("")+'<div class="lvr now"><b>'+gfmt(d.usd,2)+'</b><small>'+LG("قیمت فعلی","Current price")+'</small></div>'+r.below.map(v=>row(v,"bl")).join("");
 }
 document.querySelectorAll("#gdlvs button").forEach(b=>b.onclick=()=>{sv("goldrlm",+b.dataset.st||0);goldLevels()});
+const goldIv=()=>{const v=+ld("goldiv",15);return v===5||v===30?v:15};
+/* ---------- candles: real OHLC from the gold-candles Worker (Twelve Data), local fallback ---------- */
+const GC_DEF={url:"https://gold-candles.samanrbyy0.workers.dev/",tok:""};
+const GC=(()=>{try{const c=JSON.parse(localStorage.getItem("gccfg"))||{};return{url:String(c.url||GC_DEF.url).trim(),tok:String(c.tok||GC_DEF.tok).trim()}}catch(e){return{url:GC_DEF.url,tok:GC_DEF.tok}}})();
+GOLD.cc={};GOLD.ccErr={};GOLD.ccBusy={};
+async function goldCandles(iv,force){
+ const k=iv+"min",c=GOLD.cc[iv];
+ if(!force&&c&&Date.now()-c.ts<120000)return c.data;
+ if(GOLD.ccBusy[iv]||!navigator.onLine)return c?c.data:null;
+ const tok=String(GC.tok||"").trim();
+ if(!tok){GOLD.ccErr[iv]="token";return c?c.data:null}
+ GOLD.ccBusy[iv]=false;
+ GOLD.ccBusy[iv]=true;
+ const ctl=new AbortController(),to=setTimeout(()=>ctl.abort(),10000);
+ try{
+  const r=await fetch(GC.url+"?iv="+k,{headers:{"x-app-token":tok},signal:ctl.signal,cache:"no-store"});
+  clearTimeout(to);
+  if(r.status===401)throw new Error("token");
+  if(!r.ok)throw new Error("http"+r.status);
+  const j=await r.json();
+  if(!Array.isArray(j))throw new Error("bad");
+  const d=j.map(x=>({t:+x.t,o:+x.o,h:+x.h,l:+x.l,c:+x.c})).filter(x=>x.t>0&&x.o>0&&x.h>0&&x.l>0&&x.c>0).sort((p,q)=>p.t-q.t).slice(-48);
+  if(d.length<2)throw new Error("bad");
+  GOLD.cc[iv]={ts:Date.now(),data:d};GOLD.ccErr[iv]="";
+ }catch(e){clearTimeout(to);GOLD.ccErr[iv]=(e&&e.message==="token")?"token":"net"}
+ GOLD.ccBusy[iv]=false;
+ const z=GOLD.cc[iv];return z?z.data:null;
+}
+function goldLocalCandles(iv){
+ const ms=iv*60000,pts=goldHist(),l=GOLD.last;
+ if(l&&l.usd>0&&(!pts.length||l.ts>pts[pts.length-1].t))pts.push({t:l.ts,u:l.usd});
+ const m=new Map();
+ pts.forEach(p=>{const k=Math.floor(p.t/ms),c=m.get(k);if(!c)m.set(k,{t:k*ms,o:p.u,h:p.u,l:p.u,c:p.u});else{c.h=Math.max(c.h,p.u);c.l=Math.min(c.l,p.u);c.c=p.u}});
+ return Array.from(m.values()).slice(-48);
+}
+document.querySelectorAll("#gdivs button").forEach(b=>b.onclick=()=>{sv("goldiv",+b.dataset.iv||15);goldSpark();goldCandles(goldIv(),false).then(goldSpark)});
 function goldSpark(){
- const el=$("gdspark");
- const h=(GOLD.spark&&GOLD.spark.length>1)?GOLD.spark:goldHist().map(p=>p.u);
- if(!h||h.length<2){el.innerHTML='<div class="pc" style="text-align:center;padding:16px 0">'+LG("نمودار بعد از چند به‌روزرسانی ساخته می‌شود.","The chart appears after a few updates.")+'</div>';return}
- const w=320,ht=64,pad=3,mn=Math.min.apply(null,h),mx=Math.max.apply(null,h),rg=(mx-mn)||1;
- const pts=h.map((v,i)=>[pad+i*(w-2*pad)/(h.length-1),ht-pad-(v-mn)/rg*(ht-2*pad)]);
- const line=pts.map((p,i)=>(i?"L":"M")+p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" ");
- const area=line+" L"+(w-pad)+" "+(ht-pad)+" L"+pad+" "+(ht-pad)+" Z";
- const col=h[h.length-1]>=h[0]?"var(--acc)":"var(--no)";
- el.innerHTML='<svg viewBox="0 0 '+w+' '+ht+'" preserveAspectRatio="none" class="gspark" aria-hidden="true"><defs><linearGradient id="gsg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+col+'" stop-opacity=".32"/><stop offset="1" stop-color="'+col+'" stop-opacity="0"/></linearGradient></defs><path d="'+area+'" fill="url(#gsg)"/><path d="'+line+'" fill="none" stroke="'+col+'" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>';
+ const el=$("gdspark");if(!el)return;
+ const iv=goldIv(),wc=GOLD.cc[iv],cs=wc?wc.data:goldLocalCandles(iv);
+ document.querySelectorAll("#gdivs button").forEach(b=>b.classList.toggle("on",+b.dataset.iv===iv));
+ if(cs.length<2){
+  const er=GOLD.ccErr[iv],busy=GOLD.ccBusy[iv];
+  const msg=busy?LG("در حال دریافت کندل‌ها…","Loading candles…")
+   :er==="token"?LG("رمز Worker کندل‌ها تنظیم نشده یا اشتباهه. ۵ ثانیه روی عنوان «اونس طلا» نگه دار و رمز را وارد کن.","The candle Worker token is missing or wrong. Hold the “Gold ounce” title for 5 seconds and enter it.")
+   :er==="net"?LG("دریافت کندل‌ها ممکن نشد. اینترنت یا Worker را بررسی کن.","Could not load candles. Check your connection or the Worker.")
+   :LG("برای این بازه هنوز داده کافی نیست.","Not enough data for this timeframe yet.");
+  el.innerHTML='<div class="pc" style="text-align:center;padding:16px 0">'+msg+'</div>';return;
+ }
+ const w=320,ht=120,pad=4;
+ let mn=Infinity,mx=-Infinity;cs.forEach(c=>{if(c.l<mn)mn=c.l;if(c.h>mx)mx=c.h});
+ const rg=(mx-mn)||1,y=v=>(pad+(mx-v)/rg*(ht-2*pad)).toFixed(1),slot=(w-2*pad)/cs.length,bw=Math.max(1.5,slot*.62);
+ let g="";
+ cs.forEach((c,i)=>{
+  const x=pad+slot*(i+.5),up=c.c>=c.o,col=up?"var(--acc)":"var(--no)";
+  const yt=y(Math.max(c.o,c.c)),yb=y(Math.min(c.o,c.c)),bh=Math.max(1,yb-yt);
+  g+='<line x1="'+x.toFixed(1)+'" x2="'+x.toFixed(1)+'" y1="'+y(c.h)+'" y2="'+y(c.l)+'" style="stroke:'+col+'" stroke-width="1.2" vector-effect="non-scaling-stroke"/>'
+   +'<rect x="'+(x-bw/2).toFixed(1)+'" y="'+yt+'" width="'+bw.toFixed(1)+'" height="'+bh.toFixed(1)+'" style="fill:'+col+'"/>';
+ });
+ const srcl=wc?"Twelve Data":LG("ذخیره‌شده در اپ","saved in app");
+ el.innerHTML='<svg viewBox="0 0 '+w+' '+ht+'" preserveAspectRatio="none" class="gcandle" aria-hidden="true">'+g+'</svg>'
+  +'<div class="goldts" style="text-align:center;direction:ltr">'+cs.length+' × '+iv+LG(" دقیقه","min")+' · '+srcl+'</div>';
 }
 function goldToman(){
- const x=GOLD.x,d=GOLD.last,tf={month:"short",day:"numeric",hour:"2-digit",minute:"2-digit"};
- $("gdfxv").textContent=x&&x.fx?gfmt(x.fx,0):"—";
+ const x=GOLD.x,d=GOLD.last,tf={month:"short",day:"numeric",hour:"2-digit",minute:"2-digit"},fx=goldFx(),tgju=x&&x.fx>0;
+ $("gdfxv").textContent=tgju?gfmt(x.fx,0):(fx?gfmt(fx,0)+LG(" (دستی)"," (manual)"):"—");
  $("gdg18").textContent=x&&x.g18?gfmt(x.g18,0):"—";
- $("gdg24").textContent=x&&x.g24?gfmt(x.g24,0):"—";
  $("gdxts").textContent=x&&x.ts?fmt(tf,new Date(x.ts)):"—";
- const fx=goldFx();
- $("gdto").textContent=(fx&&d)?LG("اونس جهانی به تومان (با نرخ دلار TGJU): "+gfmt(Math.round(d.usd*fx),0)+" تومان",
-  "Global ounce in toman (TGJU rate): "+gfmt(Math.round(d.usd*fx),0)+" toman"):"";
+ $("gdto").textContent=(fx&&d)?LG("اونس جهانی به تومان (با نرخ "+(tgju?"TGJU":"دستی")+"): "+gfmt(Math.round(d.usd*fx),0)+" تومان",
+  "Global ounce in toman ("+(tgju?"TGJU":"manual")+" rate): "+gfmt(Math.round(d.usd*fx),0)+" toman"):"";
 }
 function goldAuto(on){
  clearInterval(GOLD.timer);GOLD.timer=0;
- if(on)GOLD.timer=setInterval(()=>{if(!document.hidden)goldFetch(true)},45000);
+ if(on)GOLD.timer=setInterval(()=>{if(!document.hidden){goldFetch(true);goldCandles(goldIv(),false).then(goldSpark)}},45000);
 }
 function goldOpen(){
  $("mn").style.display="none";$("gd").style.display="flex";
- goldPaint();goldSpark();goldToman();goldFetch(true);goldAuto(true);
+ $("gdfx").value=localStorage.getItem("goldfx")||"";$("gdfxm").textContent="";
+ goldPaint();goldSpark();goldToman();goldFetch(true);goldAuto(true);goldCandles(goldIv(),false).then(goldSpark);
 }
-$("mgd").onclick=goldOpen;
+function gcCfgOpen(){
+ $("mn").style.display="none";$("gd").style.display="none";goldAuto(false);
+ $("gccu").value=GC.url;$("gcct").value=GC.tok;$("gccm").textContent="";$("gcc").style.display="flex";
+}
+$("mgd").onclick=()=>{if(agHold){agHold=false;return}goldOpen()};
+setTimeout(()=>{if(!document.hidden)goldFetch(false)},4000);
+setInterval(()=>{if(!document.hidden&&!GOLD.timer)goldFetch(true)},300000);
 $("gdx").onclick=()=>{$("gd").style.display="none";goldAuto(false)};
+$("gccx").onclick=()=>{$("gcc").style.display="none"};
+$("gccs").onclick=()=>{
+ const u=$("gccu").value.trim(),t=$("gcct").value.trim();
+ if(!/^https?:\/\//.test(u)){$("gccm").textContent=LG("آدرس باید با http:// یا https:// شروع شود.","The URL must start with http:// or https://");return}
+ GC.url=u;GC.tok=t;sv("gccfg",{url:u,tok:t});GOLD.cc={};GOLD.ccErr={};
+ $("gccm").textContent=LG("ذخیره شد.","Saved.");
+};
+$("gcctest").onclick=async()=>{
+ const u=$("gccu").value.trim(),t=$("gcct").value.trim();
+ if(!/^https?:\/\//.test(u)){$("gccm").textContent=LG("آدرس معتبر نیست.","Invalid URL.");return}
+ $("gccm").textContent=LG("در حال بررسی…","Checking…");
+ try{
+  const r=await fetch(u.replace(/\/+$/,"")+"/?iv=15min",{headers:{"x-app-token":t},cache:"no-store"});
+  if(r.status===401||r.status===403)$("gccm").textContent=LG("Worker پاسخ داد اما رمز را قبول نکرد.","The Worker responded but rejected the token.");
+  else if(r.ok){const j=await r.json();$("gccm").textContent=Array.isArray(j)&&j.length?LG("اتصال درست است؛ "+j.length+" کندل دریافت شد.","Connected; received "+j.length+" candles."):LG("Worker پاسخ داد ولی کندلی نیامد.","The Worker responded but returned no candles.")}
+  else $("gccm").textContent=LG("Worker پاسخ داد (کد "+r.status+").","The Worker responded (status "+r.status+").");
+ }catch(e){$("gccm").textContent=LG("ارتباط برقرار نشد.","Could not connect.")}
+};
 $("gdr").onclick=()=>goldFetch(true);
-$("gdclr").onclick=()=>{try{localStorage.removeItem("goldhist")}catch(e){}GOLD.spark=null;goldSpark();goldPaint()};
+$("gdclr").onclick=()=>{try{localStorage.removeItem("goldhist2");localStorage.removeItem("goldhist")}catch(e){}GOLD.spark=null;goldSpark();goldPaint()};
+const gdfxSave=()=>{const v=Math.round(parseFloat(String($("gdfx").value).replace(/[^\d.]/g,"")));try{v>0?localStorage.setItem("goldfx",String(v)):localStorage.removeItem("goldfx")}catch(e){}$("gdfx").value=v>0?String(v):"";$("gdfxm").textContent=v>0?LG("ذخیره شد؛ وقتی TGJU در دسترس نباشد استفاده می‌شود.","Saved; used when TGJU is unavailable."):LG("نرخ دستی پاک شد.","Manual rate cleared.");goldToman()};
+$("gdfxs").onclick=gdfxSave;
+$("gdfx").onkeydown=e=>{if(e.key==="Enter")gdfxSave()};
 const AGT=[
 {name:"get_today",description:"وضعیت کارهای امروز کاربر: id، نام، ساعت‌ها، وضعیت (y=انجام شد، x=انجام نشد، null=بی‌جواب) و دلیل.",input_schema:O({})},
 {name:"get_stats",description:"آمار چند روز اخیر: درصد انجام هر روز، تعداد Yes/No هر کار و زنجیره‌ی روزهای خوب. برای گزارش هفتگی days=7 بده.",input_schema:O({days:{type:"integer",description:"تعداد روز، ۱ تا ۶۰"}})},
@@ -1616,7 +1791,7 @@ const AGT=[
 {name:"send_sms",description:"پیامک آماده می‌کند. اپ تأیید می‌گیرد و برنامه‌ی پیامک با متن آماده باز می‌شود؛ ارسال را کاربر خودش می‌زند. فقط وقتی کاربر صریحاً خواست.",input_schema:O({to:{type:"string",description:"نام مخاطب ذخیره‌شده یا شماره"},body:{type:"string",description:"متن پیامک"}},["to","body"])},
 {name:"save_contact",description:"یک مخاطب (نام و شماره) را روی همین گوشی ذخیره می‌کند تا بعداً با نام بشود تماس گرفت یا پیامک داد.",input_schema:O({name:{type:"string"},number:{type:"string"}},["name","number"])},
 {name:"list_contacts",description:"فقط نام مخاطب‌های ذخیره‌شده را برمی‌گرداند (بدون شماره).",input_schema:O({})},
-{name:"get_gold_price",description:"قیمت لحظه‌ای اونس جهانی طلا (XAU/USD) به دلار، هر گرم، تغییر ۲۴ ساعت و ۷ روز و نرخ دلار و قیمت هر گرم طلای ۱۸ و ۲۴ به تومان از TGJU. برای هر سؤال دربارهٔ قیمت طلا، اونس یا بازار طلا از این ابزار استفاده کن. قیمت مرجع جهانی تقریبی است؛ آن را با منبع و زمان بگو و به‌عنوان سیگنال خرید/فروش معرفی نکن.",input_schema:O({})}
+{name:"get_gold_price",description:"قیمت لحظه‌ای اونس جهانی طلا (XAU/USD) از TradingView (PEPPERSTONE) به دلار، هر گرم، تغییر ۲۴ ساعت و ۷ روز، بازگشایی/سقف/کف روز، نقاط رند، و نرخ دلار و قیمت هر گرم طلای ۱۸ و ۲۴ به تومان از TGJU. برای هر سؤال دربارهٔ قیمت طلا، اونس یا بازار طلا از این ابزار استفاده کن. قیمت مرجع جهانی است؛ آن را با منبع و زمان بگو و به‌عنوان سیگنال خرید/فروش معرفی نکن.",input_schema:O({})}
 ];
 const agFind=q=>{q=String(q).trim();return tasks.find(t=>String(t[2])===q)||tasks.find(t=>t[0]===q)||tasks.find(t=>t[0].includes(q)||q.includes(t[0]))};
 const agTimes=a=>(Array.isArray(a)?a:[]).map(String).filter(x=>/^\d{1,2}:\d{2}$/.test(x)).map(x=>x.padStart(5,"0"));
@@ -1665,12 +1840,17 @@ get_gold_price:async()=>{
   usd_per_gram:+(d.usd/GOLD.OD).toFixed(2),
   change_24h_percent:c24==null?null:+c24.toFixed(2),
   change_7d_percent:c7==null?null:+c7.toFixed(2),
+  change_24h_abs:d.chAbs==null?null:+d.chAbs.toFixed(2),
+  day_open:d.open==null?null:+d.open.toFixed(2),
+  day_high:d.high==null?null:+d.high.toFixed(2),
+  day_low:d.low==null?null:+d.low.toFixed(2),
   source:d.src,
   updated_at:new Date(d.ts).toISOString(),
-  note:"Ounce: TradingView PEPPERSTONE:XAUUSD (fallback sources are labeled in 'source'). Toman prices: TGJU. Not a shop buy/sell quote."
+  note:"Ounce: TradingView (PEPPERSTONE:XAUUSD). Toman prices: TGJU. Not a shop buy/sell quote."
  };
  const rl=goldRound();if(rl)o.round_levels={step:rl.step,auto:rl.auto,above:rl.above,below:rl.below,nearest:rl.nearest,note:"Round (psychological) levels, Round Levels indicator rule"};
  if(GOLD.x&&GOLD.x.fx)o.tgju_toman={usd_rate:GOLD.x.fx,gram_18k:GOLD.x.g18||null,gram_24k:GOLD.x.g24||null,updated_at:GOLD.x.ts?new Date(GOLD.x.ts).toISOString():null};
+ else if(fx)o.manual_toman={usd_rate:fx,toman_per_gram:Math.round(d.usd/GOLD.OD*fx),toman_per_ounce:Math.round(d.usd*fx),note:"User-entered fallback rate"};
  return o;
 }
 };
@@ -1796,8 +1976,9 @@ async function agGoldContext(t){
  if(c24!=null)p.push(LG("تغییر ۲۴ ساعت","24h change")+": "+(c24>0?"+":"")+c24.toFixed(2)+"%");
  if(c7!=null)p.push(LG("تغییر ۷ روز","7d change")+": "+(c7>0?"+":"")+c7.toFixed(2)+"%");
  if(GOLD.x&&GOLD.x.fx)p.push(LG("دلار","USD")+": "+GOLD.x.fx+" "+LG("تومان","toman")+(GOLD.x.g18?" · "+LG("گرم ۱۸","18k gram")+": "+GOLD.x.g18+" "+LG("تومان","toman"):"")+(GOLD.x.g24?" · "+LG("گرم ۲۴","24k gram")+": "+GOLD.x.g24+" "+LG("تومان","toman"):"")+" (TGJU)");
+ else if(fx)p.push(LG("دلار (دستی)","USD (manual)")+": "+fx+" "+LG("تومان","toman")+" · "+LG("گرم","gram")+": "+Math.round(d.usd/GOLD.OD*fx)+" "+LG("تومان","toman")+" · "+LG("اونس","ounce")+": "+Math.round(d.usd*fx)+" "+LG("تومان","toman"));
  p.push(LG("منبع","Source")+": "+d.src+", "+new Date(d.ts).toISOString());
- p.push(LG("این قیمت مرجع جهانی تقریبی است، نه نرخ خرید/فروش طلافروشی.","Approximate global spot price, not a shop buy/sell rate."));
+ p.push(LG("این قیمت مرجع جهانی است، نه نرخ خرید/فروش طلافروشی.","Global spot price, not a shop buy/sell rate."));
  return p.join(" · ");
 }
 function agRestore(){
@@ -1820,7 +2001,7 @@ function agCfgOpen(){
  $("agcu").value=AG.url;$("agct").value=AG.tok;$("agcm").textContent="";$("agc").style.display="flex";
 }
 let agHold=false;
-function holdCfg(el,pre){
+function holdCfg(el,pre,open){
  if(!el)return;
  let tm=null;
  const stop=()=>{clearTimeout(tm);tm=null;el.classList.remove("hold")};
@@ -1832,7 +2013,7 @@ function holdCfg(el,pre){
    tm=null;agHold=true;el.classList.remove("hold");
    try{navigator.vibrate&&navigator.vibrate(30)}catch(_){}
    if(pre)pre();
-   agCfgOpen();
+   (open||agCfgOpen)();
   },5000);
  });
  ["pointerup","pointerleave","pointercancel"].forEach(ev=>el.addEventListener(ev,stop));
@@ -1840,6 +2021,8 @@ function holdCfg(el,pre){
 }
 $("mag").onclick=()=>{if(agHold){agHold=false;return}agOpen()};
 holdCfg($("mag"));
+holdCfg($("mgd"),null,gcCfgOpen);
+holdCfg($("gd").querySelector(".head h2"),null,gcCfgOpen);
 holdCfg($("ag").querySelector(".head h2"),()=>{$("ag").style.display="none";if(window.speechSynthesis)speechSynthesis.cancel()});
 $("agx").onclick=()=>{$("ag").style.display="none";if(window.speechSynthesis)speechSynthesis.cancel();if(agRec&&agMic)agRec.stop()};
 $("agclr").onclick=()=>{AG.h=[];agRestored=true;try{localStorage.removeItem("aghist")}catch(e){}$("agl").innerHTML="";agAdd("a",LG("گفتگو پاک شد.","Chat cleared."))};
