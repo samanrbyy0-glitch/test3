@@ -342,7 +342,7 @@ main{min-width:0;padding:0 0 70px;margin:0;display:flex;flex-direction:column;ga
 .dn{text-decoration:line-through;color:var(--mute)}
 
 /* ---------- menu / overlays ---------- */
-#mn,#st,#st2,#wy,#wm,#ins,#bk,#rq,#lw,#pn,#ag,#agc,#gcc,#gd,#ed,#tp,#ov{
+#mn,#st,#st2,#wy,#wm,#ins,#bk,#rq,#lw,#pn,#ag,#agc,#gcc,#ed,#tp,#ov{
   display:none;position:fixed;inset:0;z-index:50;padding:18px;
   background:rgba(2,8,5,.62);backdrop-filter:blur(8px);
   align-items:center;justify-content:center;
@@ -362,7 +362,7 @@ main{min-width:0;padding:0 0 70px;margin:0;display:flex;flex-direction:column;ga
 .ck input{width:20px;height:20px;flex-shrink:0;accent-color:var(--acc)}
 .ovh{max-height:60vh;overflow:auto;white-space:pre-wrap;line-height:1.9;font-size:.9rem}
 
-#ov .card,#tp .card,#ed .card,#st .card,#st2 .card,#wy .card,#wm .card,#ins .card,#bk .card,#rq .card,#lw .card,#pn .card,#agc .card,#gcc .card,#gd .card{
+#ov .card,#tp .card,#ed .card,#st .card,#st2 .card,#wy .card,#wm .card,#ins .card,#bk .card,#rq .card,#lw .card,#pn .card,#agc .card,#gcc .card{
   width:100%;max-width:400px;max-height:88vh;overflow:auto;margin:0;
   background:var(--solid);backdrop-filter:none;border-color:var(--line2);box-shadow:var(--shadow);
   animation:pop .22s cubic-bezier(.2,.8,.2,1);
@@ -620,9 +620,134 @@ main{min-width:0;padding:0 0 70px;margin:0;display:flex;flex-direction:column;ga
 #gd .lvr.now{background:transparent;border-style:dashed;border-color:var(--line2)}
 #gd .lvr.now b{color:var(--ink2);font-size:.64rem}
 
+/* ---------- gold page ---------- */
+#gd{display:none;flex-direction:column;gap:14px}
+#gd .card{width:100%;max-width:none;max-height:none;overflow:visible;margin:0;animation:none}
+.goldhead{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.goldhead h2{font-size:1.1rem;margin:0}
+.goldhead .pc{margin:4px 0 0;max-width:42em}
+.goldacts{display:flex;gap:6px;flex-wrap:wrap}
+.goldduo{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:900px){.goldduo{grid-template-columns:1fr 1fr}}
+.goldz{position:relative;cursor:pointer;transition:border-color .15s,transform .15s}
+.goldz:hover{border-color:var(--line2)}
+.goldz:active{transform:scale(.996)}
+.goldgrid.split{grid-template-columns:repeat(6,1fr)}
+.goldgrid.split>div:nth-child(1),.goldgrid.split>div:nth-child(2){grid-column:span 3}
+.goldgrid.split>div:nth-child(3),.goldgrid.split>div:nth-child(4),.goldgrid.split>div:nth-child(5){grid-column:span 2}
+.goldgrid.split>.goldts{grid-column:1/-1}
+.gztf{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-top:9px;padding-top:8px;border-top:1px solid var(--line)}
+.gztf>span{font-size:.58rem;color:var(--mute);margin-inline-end:auto;white-space:nowrap}
+.gztf .lt{padding:4px 9px;font-size:.68rem;min-height:26px;line-height:1.2}
+.goldzico{font-size:.82rem;color:var(--mute);opacity:.85;line-height:1}
+.goldzhint{display:flex;align-items:center;gap:5px;font-size:.61rem;color:var(--mute);margin-top:8px}
+.gwm{display:flex;flex-direction:column;gap:8px;margin-top:5px}
+.gwr{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.gwr>div{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:7px 9px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.gwr span{font-size:.63rem;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gwr b{font-size:.9rem;font-weight:800;direction:ltr;unicode-bidi:isolate;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gwr b.hi{color:var(--no)}.gwr b.op{color:var(--warn)}.gwr b.lo{color:var(--acc)}
+.gwtrack{position:relative;height:10px;border-radius:999px;border:1px solid var(--line);margin:7px 3px 0;direction:ltr;background:linear-gradient(90deg,rgba(62,230,164,.3),rgba(255,181,71,.16),rgba(255,107,107,.3))}
+.gwtrack .gwp{position:absolute;top:50%;width:10px;height:10px;border-radius:50%;transform:translate(-50%,-50%);border:2px solid var(--solid);box-shadow:0 0 0 1px rgba(0,0,0,.4)}
+.gwtrack .gwp.op{background:var(--warn)}
+.gwtrack .gwp.nw{background:var(--ink);width:7px;height:7px}
+.gwbtns{display:flex;align-items:center;justify-content:space-between;font-size:.57rem;color:var(--mute);direction:ltr;margin-top:1px}
+.gprev{display:flex;flex-direction:column;gap:7px;margin-top:5px}
+.gprevrow{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:9px 11px}
+.gprevrow span{font-size:.72rem;color:var(--mute)}
+.gprevrow b{font-size:1.02rem;font-weight:900;direction:ltr;unicode-bidi:isolate}
+.gprevrow.hi b{color:var(--no)}.gprevrow.lo b{color:var(--acc)}
+.gprevrow small{font-size:.6rem;color:var(--mute);direction:ltr;unicode-bidi:isolate;min-width:3.4em;text-align:end}
+.gprevmeta{font-size:.63rem;color:var(--mute);text-align:center;margin-top:7px}
+#gdz{display:none;position:fixed;inset:0;z-index:65;padding:14px;background:rgba(2,8,5,.82);backdrop-filter:blur(10px)}
+#gdz.on{display:flex}
+#gdz .gzc{display:flex;flex-direction:column;gap:8px;width:100%;height:100%;min-height:0;background:var(--solid);border:1px solid var(--line2);border-radius:20px;padding:12px;box-shadow:var(--shadow)}
+.gzhead{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.gzhead h2{font-size:1rem;margin:0}
+.gzhead .pc{margin:3px 0 0;font-size:.66rem}
+.gzleg{display:flex;gap:10px;flex-wrap:wrap;font-size:.62rem;color:var(--mute)}
+.gzleg span{display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+.gzleg i{width:14px;height:2px;border-radius:2px;display:inline-block}
+#gzchart{flex:1;min-height:0;position:relative;overflow:hidden;border-radius:12px;background:rgba(255,255,255,.02);border:1px solid var(--line)}
+#gzchart svg{display:block;width:100%;height:100%}
+#gzchart .gznone{display:grid;place-items:center;height:100%;padding:22px;text-align:center;font-size:.8rem;color:var(--mute);line-height:1.9}
+.gzfoot{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:.61rem;color:var(--mute)}
+@media(max-width:600px){
+  #gdz{padding:8px}
+  #gdz .gzc{border-radius:16px;padding:10px;gap:6px}
+  .gzhead h2{font-size:.92rem}
+  .gwr b{font-size:.82rem}
+  .gprevrow b{font-size:.94rem}
+  .goldgrid.split>div{padding:8px 6px}
+  .goldgrid.split>div:nth-child(3),.goldgrid.split>div:nth-child(4),.goldgrid.split>div:nth-child(5){padding:8px 5px}
+  .goldgrid.split>div:nth-child(n+3) b{font-size:.76rem}
+  .goldgrid.split>div:nth-child(n+3) span{font-size:.6rem}
+  .gztf .lt{padding:4px 7px;font-size:.64rem}
+}
+
 .daily-root{display:contents}
+
+/* ---------- gold window · simple & clean redesign ---------- */
+#gd{--g1:#ffd98a;--g2:#ffb547;--gl:rgba(255,181,71,.16);gap:12px}
+:root[data-theme="light"] #gd{--g1:#e39b1b;--g2:#b86f00;--gl:rgba(196,123,8,.12)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) #gd{--g1:#e39b1b;--g2:#b86f00;--gl:rgba(196,123,8,.12)}}
+#gd .card{border-radius:24px;padding:16px;border:1px solid var(--line);background:linear-gradient(170deg,rgba(255,255,255,.045),transparent 60%),var(--card);backdrop-filter:blur(18px);box-shadow:var(--shadow-sm)}
+/* header */
+#gd .goldhead{align-items:center;padding:2px 4px}
+#gd .goldhead h2{font-size:1.15rem}
+#gd .goldhead .pc{font-size:.68rem;margin:2px 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:62vw}
+#gd .goldacts{gap:6px}
+#gd .goldacts .lt{border-radius:14px;padding:7px 13px;font-size:.78rem}
+#gd #gdclr{background:transparent;border-color:transparent;color:var(--mute);padding:7px 8px}
+/* hero */
+#gd .goldbig{margin:0 0 12px;padding:26px 14px 22px;border-radius:20px;border:1px solid var(--gl);
+ background:radial-gradient(260px 140px at 50% 0,var(--gl),transparent 75%),var(--card2);gap:6px}
+#gd .goldbig::after{display:none}
+#gd .goldbig b{font-size:2.9rem;font-weight:900;letter-spacing:-.03em;line-height:1.1;
+ background:linear-gradient(180deg,var(--g1),var(--g2));-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+#gd .goldbig small{font-size:.7rem;letter-spacing:.04em}
+/* stats strip */
+#gd .goldgrid.split{gap:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--card2)}
+#gd .goldgrid.split>div{background:transparent;border:0;border-radius:0;padding:11px 8px;align-items:center;text-align:center;border-inline-end:1px solid var(--line);border-bottom:1px solid var(--line)}
+#gd .goldgrid.split>div:nth-child(2),#gd .goldgrid.split>div:nth-child(5){border-inline-end:0}
+#gd .goldgrid.split>div:nth-child(5){border-bottom:0}
+#gd .goldgrid.split>div:nth-child(3),#gd .goldgrid.split>div:nth-child(4){border-bottom:0}
+#gd .goldgrid.split>div:nth-child(4){border-inline-end:1px solid var(--line)}
+#gd .goldgrid.split>div:nth-child(1) b,#gd .goldgrid.split>div:nth-child(2) b{font-size:1.1rem}
+#gd .goldgrid.split>.goldts{border:0;padding:8px 0 0;background:none;text-align:center;grid-column:1/-1}
+#gd .goldgrid span{font-size:.64rem;letter-spacing:.02em}
+/* small cards */
+#gd .goldlvh{margin:0 0 10px}
+#gd .goldlvh span{font-size:.8rem;color:var(--ink2);font-weight:800}
+#gd .goldlvs{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:2px;gap:2px}
+#gd .goldlvs .lt{border:0;background:transparent;border-radius:10px;padding:4px 10px}
+#gd .goldlvs .lt.on{background:var(--acc);color:var(--acc-ink)}
+#gd .goldzico,#gd .goldzhint{display:none}
+#gd .goldz:hover{border-color:var(--gl)}
+#gd .gztf{border-top:0;padding-top:0;margin-top:12px}
+#gd .gztf>span{display:none}
+#gd .gztf{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:2px;gap:2px;width:max-content;max-width:100%}
+#gd .gztf .lt{border:0;background:transparent;border-radius:10px;flex:0 0 auto}
+#gd .gztf .lt.on{background:var(--acc);color:var(--acc-ink)}
+#gd .gwr>div,#gd .gprevrow{background:var(--card2);border-radius:14px}
+#gd .gwtrack{height:8px;margin:12px 3px 0}
+#gd .gprevmeta{font-size:.64rem;color:var(--mute);margin-top:8px;text-align:center}
+/* round levels */
+#gd .goldlv{gap:3px}
+#gd .lvr{padding:6px 12px;border-radius:12px}
+#gd .lvr b{font-size:.82rem}
+#gd .lvr small{font-size:.66rem}
+#gd .lvr.ab b{color:var(--no)}#gd .lvr.bl b{color:var(--acc)}
+#gd .lvr.near{background:var(--gl)}
+#gd .lvr.now{border-style:solid;border-color:var(--g2);background:var(--gl);margin:3px 0}
+#gd .lvr.now b{font-size:.9rem;color:var(--g2)}
+/* toman section */
+#gd .goldgrid:not(.split)>div{border-radius:16px;padding:12px;align-items:center;text-align:center}
+#gd .goldgrid:not(.split) b{font-size:1.05rem}
+#gd .goldfx input{border-radius:14px}
+@media(max-width:520px){#gd .goldbig b{font-size:2.5rem}#gd .goldhead .pc{max-width:55vw}}
 </style></head><body><div class="daily-root">
-<div class="app"><aside class="side"><button class="ic" id="menu" aria-label="منو" title="منو">✦</button><nav id="snav"><button class="ic on" id="sb1" aria-label="برنامه روزانه" title="برنامه روزانه">⌂</button><button class="ic" id="sb2" aria-label="کارهای من" title="کارهای من">☑</button><button class="ic" id="sb3" aria-label="تحلیل و روند" title="تحلیل و روند">📊</button></nav><button class="ic" id="bdo" aria-label="تغییرات بدن" title="تغییرات بدن">◐</button></aside><main>
+<div class="app"><aside class="side"><button class="ic" id="menu" aria-label="منو" title="منو">✦</button><nav id="snav"><button class="ic on" id="sb1" aria-label="برنامه روزانه" title="برنامه روزانه">⌂</button><button class="ic" id="sb2" aria-label="کارهای من" title="کارهای من">☑</button><button class="ic" id="sb3" aria-label="تحلیل و روند" title="تحلیل و روند">📊</button><button class="ic" id="sbg" aria-label="اونس طلا" title="اونس طلا">🥇</button></nav><button class="ic" id="bdo" aria-label="تغییرات بدن" title="تغییرات بدن">◐</button></aside><main>
 <div class="tb"><div class="seg"><button id="tmD" aria-label="تم تیره">☾</button><button id="tmL" aria-label="تم روشن">☀</button></div><input id="sq" class="sq" type="search" placeholder="جستجوی کار…"><button class="bell" id="bell" aria-label="کارهای مانده">🔔<b id="bb"></b></button></div>
 <div class="head"><div style="display:flex;align-items:center;gap:10px"><h1 id="ph1">لیست کارها</h1></div><div style="display:flex;gap:8px"><button class="plus" id="plus" aria-label="افزودن کار">+</button></div></div><div class="sub" id="day"></div>
 <div class="tabs"><button id="tab1" class="on">برنامه روزانه</button><button id="tab2">کارهای من</button><button id="tab3">تغییرات بدن</button></div>
@@ -676,35 +801,79 @@ main{min-width:0;padding:0 0 70px;margin:0;display:flex;flex-direction:column;ga
 <div id="ag"><div class="card"><div class="head"><h2>🤖 ایجنت</h2><div style="display:flex;gap:6px"><button class="lt" id="agclr" title="پاک کردن گفتگو" aria-label="پاک کردن گفتگو">🧹</button><button class="lt" id="agx">بستن</button></div></div><div id="agl"></div><div id="agq"><button class="lt" data-q="یه گزارش هفتگی از ۷ روز اخیرم بنویس">📅 گزارش هفتگی</button><button class="lt" data-q="بهانه‌های پرتکرار این ماهم رو تحلیل کن و راه‌حل پیشنهاد بده">🔍 تحلیل بهانه‌ها</button><button class="lt" data-q="کارهای عقب‌افتاده‌ام رو ببین و برای هر کدوم قدم‌های کوچیک‌تر پیشنهاد بده">🪜 شکستن کار عقب‌افتاده</button><button class="lt" data-q="قیمت اونس طلای جهانی الان چنده؟ به دلار و گرم بگو و تغییر ۲۴ ساعته‌اش رو هم بگو">🥇 قیمت طلا</button></div><div class="add2"><input id="agi" placeholder="بنویس..."><button class="lt" id="agm2" title="دستور صوتی">🎤</button><button class="lt" id="agsp" title="خواندن جواب با صدا">🔇</button><button class="lt on" id="ags">بفرست</button></div></div></div>
 <div id="agc"><div class="card"><h2>⚙️ تنظیمات ایجنت</h2><div class="pc">آدرس سرور و توکن دسترسی ایجنت. این مقادیر فقط روی همین دستگاه ذخیره می‌شوند و به فایل پشتیبان هم منتقل می‌شوند.</div><input id="agcu" class="reason" dir="ltr" autocomplete="off" placeholder="https://your-worker.workers.dev"><input id="agct" class="reason" dir="ltr" autocomplete="off" placeholder="App token"><div class="head" style="margin-top:10px"><button class="lt on" id="agcs">ذخیره</button><button class="lt" id="agctest">تست اتصال</button></div><div id="agcm" class="pc"></div><div class="head" style="margin-top:12px"><button class="lt" id="agcx">بستن</button></div></div></div>
 <div id="gcc"><div class="card"><h2>⚙️ تنظیمات نمودار طلا</h2><div class="pc">آدرس Worker کندل‌ها و رمز APP_TOKEN آن. این مقادیر فقط روی همین دستگاه ذخیره می‌شوند.</div><input id="gccu" class="reason" dir="ltr" autocomplete="off" placeholder="https://gold-candles.your-name.workers.dev"><input id="gcct" class="reason" dir="ltr" autocomplete="off" placeholder="App token"><div class="head" style="margin-top:10px"><button class="lt on" id="gccs">ذخیره</button><button class="lt" id="gcctest">تست اتصال</button></div><div id="gccm" class="pc"></div><div class="head" style="margin-top:12px"><button class="lt" id="gccx">بستن</button></div></div></div>
-<div id="gd"><div class="card">
- <div class="head"><h2>🥇 اونس طلا</h2><button class="lt" id="gdx">بستن</button></div>
- <div class="goldbig"><b id="gdusd">—</b><small>دلار / اونس · TradingView</small></div>
- <div class="goldgrid">
-  <div><span>تغییر ۲۴ ساعت</span><b id="gdc">—</b></div>
-  <div><span>تغییر ۷ روز</span><b id="gdc7">—</b></div>
-  <div><span>هر گرم (دلار)</span><b id="gdg">—</b></div>
-  <div><span>بازگشایی امروز</span><b id="gdopen">—</b></div>
-  <div><span>سقف امروز</span><b id="gdhigh">—</b></div>
-  <div><span>کف امروز</span><b id="gdlow">—</b></div>
-  <div class="goldts" style="grid-column:1/-1"><span>آخرین به‌روزرسانی</span>: <b id="gdts">—</b></div>
+<div id="gd" style="display:none">
+ <div class="goldhead">
+  <div><h2 id="gdt">🥇 اونس طلا</h2><div class="pc" id="gdmsg">به‌روزرسانی خودکار</div></div>
+  <div class="goldacts"><button class="lt on" id="gdr">↻ به‌روزرسانی</button><button class="lt" id="gdclr">پاک کردن تاریخچه</button></div>
  </div>
- <div class="goldlvh"><span id="gdlvt">نقاط رند اونس</span><div class="goldlvs" id="gdlvs"><button class="lt on" data-st="0">خودکار</button><button class="lt" data-st="10">۱۰</button><button class="lt" data-st="20">۲۰</button><button class="lt" data-st="50">۵۰</button></div></div>
- <div class="goldlv" id="gdlv"></div>
- <div class="goldlvh"><span>نمودار</span><div class="goldlvs" id="gdivs"><button class="lt" data-iv="5">۵ دقیقه</button><button class="lt on" data-iv="15">۱۵ دقیقه</button><button class="lt" data-iv="30">۳۰ دقیقه</button></div></div>
- <div id="gdspark"></div>
- <div class="pc" id="gdmsg">قیمت اونس از TradingView (PEPPERSTONE:XAUUSD) و دلار و طلای ۱۸ از TGJU؛ هر ۴۵ ثانیه خودکار به‌روز می‌شود.</div>
- <div class="head" style="margin-top:10px"><button class="lt on" id="gdr">↻ به‌روزرسانی</button><button class="lt" id="gdclr">پاک کردن تاریخچه</button></div>
- <div class="pc" style="margin-top:12px">قیمت‌های تومانی از TGJU (خودکار)</div>
- <div class="goldgrid">
-  <div><span>دلار (تومان)</span><b id="gdfxv">—</b></div>
-  <div><span>هر گرم طلای ۱۸</span><b id="gdg18">—</b></div>
+ <div class="card">
+  <div class="goldbig"><b id="gdusd">—</b><small>دلار / اونس · XAU/USD</small></div>
+  <div class="goldgrid split">
+   <div><span>تغییر ۲۴ ساعت</span><b id="gdc">—</b></div>
+   <div><span>تغییر ۷ روز</span><b id="gdc7">—</b></div>
+   <div><span>بازگشایی امروز</span><b id="gdopen">—</b></div>
+   <div><span>سقف امروز</span><b id="gdhigh">—</b></div>
+   <div><span>کف امروز</span><b id="gdlow">—</b></div>
+   <div class="goldts" style="grid-column:1/-1"><span>آخرین به‌روزرسانی</span>: <b id="gdts">—</b></div>
+  </div>
  </div>
- <div class="goldt" id="gdto"></div>
- <div class="goldts"><span>آخرین به‌روزرسانی TGJU</span>: <b id="gdxts">—</b></div>
- <div class="pc" style="margin-top:10px">نرخ دستی دلار (اگر TGJU در دسترس نبود)</div>
- <div class="goldfx"><input id="gdfx" type="number" inputmode="decimal" placeholder="مثلاً ۹۵۰۰۰"><button class="lt" id="gdfxs">ذخیره</button></div>
- <div class="pc" id="gdfxm"></div>
-</div></div>
+ <div class="goldduo">
+  <div class="card goldz" id="gdwcard" data-zoom="1" role="button" tabindex="0" aria-label="ویکلی مپ — باز کردن چارت بزرگ">
+   <div class="goldlvh"><span>ویکلی مپ</span><span class="goldzico" aria-hidden="true">⤢</span></div>
+   <div class="gwm">
+    <div class="gwr">
+     <div><span>سقف هفته</span><b class="hi" id="gdwh">—</b></div>
+     <div><span>بازگشایی هفته</span><b class="op" id="gdwo">—</b></div>
+     <div><span>کف هفته</span><b class="lo" id="gdwl">—</b></div>
+    </div>
+    <div class="gwtrack" id="gwtrack"><i class="gwp op" id="gwpo" style="display:none"></i><i class="gwp nw" id="gwpn" style="display:none"></i></div>
+    <div class="gwbtns"><span>کف</span><span>سقف</span></div>
+   </div>
+   <div class="gztf" id="gwtf"><span>تایم فریم چارت</span><button class="lt" data-ziv="240">۴ ساعت</button><button class="lt" data-ziv="720">۱۲ ساعت</button><button class="lt" data-ziv="1440">۱ روز</button></div>
+   <div class="goldzhint">⤢ برای دیدن چارت بزرگ بزن</div>
+  </div>
+  <div class="card goldz" id="gdpcard" data-zoom="1" role="button" tabindex="0" aria-label="سقف و کف سشن روز قبل — باز کردن چارت بزرگ">
+   <div class="goldlvh"><span>سقف و کف سشن روز قبل</span><span class="goldzico" aria-hidden="true">⤢</span></div>
+   <div class="gprev">
+    <div class="gprevrow hi"><span>سقف سشن</span><b id="gdpv">—</b><small id="gdpvd"></small></div>
+    <div class="gprevrow lo"><span>کف سشن</span><b id="gdpl">—</b><small id="gdpld"></small></div>
+   </div>
+   <div class="gprevmeta" id="gdpdate">—</div>
+   <div class="gztf" id="gptf"><span>تایم فریم چارت</span><button class="lt" data-ziv="15">۱۵ دقیقه</button><button class="lt" data-ziv="30">۳۰ دقیقه</button><button class="lt" data-ziv="240">۴ ساعت</button></div>
+   <div class="goldzhint">⤢ برای دیدن چارت بزرگ بزن</div>
+  </div>
+ </div>
+ <div class="goldduo">
+  <div class="card goldz" id="gdlvcard" data-zoom="1" role="button" tabindex="0" aria-label="نقاط رند — باز کردن چارت بزرگ">
+   <div class="goldlvh"><span id="gdlvt">نقاط رند اونس</span><div class="goldlvs" id="gdlvs"><button class="lt on" data-st="0">خودکار</button><button class="lt" data-st="10">۱۰</button><button class="lt" data-st="20">۲۰</button><button class="lt" data-st="50">۵۰</button></div></div>
+   <div class="goldlv" id="gdlv"></div>
+  </div>
+  <div class="card goldz" id="gdchartcard" data-zoom="1" role="button" tabindex="0" aria-label="نمودار — باز کردن چارت بزرگ">
+   <div class="goldlvh"><span>نمودار</span><div class="goldlvs" id="gdivs"><button class="lt" data-iv="5">۵ دقیقه</button><button class="lt on" data-iv="15">۱۵ دقیقه</button><button class="lt" data-iv="30">۳۰ دقیقه</button></div></div>
+   <div id="gdspark"></div>
+  </div>
+ </div>
+ <div class="card">
+  <div class="pc" style="margin-top:0">قیمت‌های تومانی از TGJU (خودکار)</div>
+  <div class="goldgrid">
+   <div><span>دلار (تومان)</span><b id="gdfxv">—</b></div>
+   <div><span>هر گرم طلای ۱۸</span><b id="gdg18">—</b></div>
+  </div>
+  <div class="goldt" id="gdto"></div>
+  <div class="goldts"><span>آخرین به‌روزرسانی TGJU</span>: <b id="gdxts">—</b></div>
+ </div>
+</div>
+<div id="gdz" role="dialog" aria-modal="true" aria-label="چارت بزرگ اونس">
+ <div class="gzc">
+  <div class="gzhead">
+   <div><h2>📈 چارت بزرگ اونس</h2><div class="pc" id="gzsrc">—</div></div>
+   <button class="lt on" id="gzx">بستن ✕</button>
+  </div>
+  <div class="gzleg" id="gzleg"></div>
+  <div id="gzchart"></div>
+  <div class="gzfoot"><span id="gzfootl"></span><span id="gzfootr"></span></div>
+ </div>
+</div>
 <div id="mn"><div class="card"><button class="mi" id="med">✏️ ویرایش</button><button class="mi" id="mst">روز سبک</button><button class="mi" id="min">📈 آمار کامل</button><button class="mi" id="mgd">🥇 اونس طلا</button><button class="mi" id="man">📊 تحلیل و روند</button><button class="mi" id="mwy">📊 مانع‌های تکرارشده</button><button class="mi" id="mpn">⚖️ جریمه‌های من</button><button class="mi" id="mag" title="برای تنظیمات، ۵ ثانیه نگه دار">🤖 ایجنت</button><button class="mi" id="mbk">💾 پشتیبان‌گیری و بازیابی</button><button class="lt mi" id="wk">روزهای آخر هفته</button><button class="mi" id="mtour">🧭 راهنما</button><button class="mi" id="lng">🌐 English</button></div></div>
 <div id="st"><div class="card"><h2>روز سبک</h2><div class="pc" id="std"></div><div class="pc" id="stc" style="margin:8px 0;font-weight:bold"></div><div id="stl"></div><div class="head" style="margin-top:12px"><button class="lt on" id="stx">بستن</button></div></div></div>
 <div id="wy"><div class="card"><h2>مانع‌های تکرارشده</h2><div class="pc">۷ روز اخیر. مانع‌هایی که یکسان نوشته شوند با هم شمرده می‌شوند.</div><div id="wyb"></div><div class="head" style="margin-top:12px"><button class="lt on" id="wyx">بستن</button></div></div></div>
@@ -809,6 +978,21 @@ Object.assign(I18N,{
 "سرور پاسخ داد اما توکن را قبول نکرد.":"The server responded but rejected the token.","سرور در دسترس است.":"The server is reachable.","ارتباط برقرار نشد.":"Could not connect.",
 "اجازه‌ی دسترسی به میکروفون داده نشده.":"Microphone access was not granted."
 });
+Object.assign(I18N,{
+ "ویکلی مپ":"Weekly map","سقف و کف سشن روز قبل":"Previous session high/low",
+ "سقف هفته":"Week high","بازگشایی هفته":"Week open","کف هفته":"Week low",
+ "کف":"Low","سقف":"High","سقف سشن":"Session high","کف سشن":"Session low",
+ "⤢ برای دیدن چارت بزرگ بزن":"⤢ Tap to open the big chart",
+ "📈 چارت بزرگ اونس":"📈 Gold big chart","بستن ✕":"Close ✕",
+ "ویکلی مپ — باز کردن چارت بزرگ":"Weekly map — open the big chart",
+ "سقف و کف سشن روز قبل — باز کردن چارت بزرگ":"Previous session high/low — open the big chart",
+ "نقاط رند — باز کردن چارت بزرگ":"Round levels — open the big chart",
+ "نمودار — باز کردن چارت بزرگ":"Chart — open the big chart",
+ "چارت بزرگ اونس":"Gold big chart","در حال آماده‌سازی چارت…":"Preparing the chart…",
+ "تایم فریم چارت":"Chart timeframe","۴ ساعت":"4h","۱۲ ساعت":"12h","۱ روز":"1d",
+ "در حال دریافت…":"Loading…",
+ "خطوط: سقف/بازگشایی/کف هفته و سقف/کف سشن روز قبل":"Lines: week high/open/low and previous session high/low"
+});
 const ORG=new WeakMap();
 function applyStatic(){
  const en=ISEN(),w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT),arr=[];let n;while(n=w.nextNode())arr.push(n);
@@ -828,7 +1012,9 @@ function initLang(){
 function setLang(l){
  LANG=l;sv("lang",l);initLang();
  $("quote").textContent="💬 "+QQ()[qi(now)];
- selDay(SD);renderT();sched()}
+ selDay(SD);renderT();sched();
+ try{if($("gd")&&$("gd").style.display!=="none"){goldPaint();goldSpark();goldToman();if(gzOpen)goldZoomPaint(false)}}catch(e){}
+}
 const DEF=[];let SQ="",CF=null,nc=null,ec="کار";const CATS=["کار","سلامت","یادگیری"],cat=t=>CATS.includes(t[3])?t[3]:"کار";
 let steady=null;
 const LIGHT=()=>steady?steady.filter(id=>T(id)):tasks.slice(0,5).map(t=>t[2]);
@@ -974,9 +1160,9 @@ function renderT(){
 }
 $("ta").onclick=()=>{const v=$("ti").value.trim();if(!v)return;todos.unshift({t:v,c:Date.now(),done:false});svT();$("ti").value="";renderT()};
 $("ti").onkeydown=e=>{if(e.key==="Enter")$("ta").onclick()};
-const TT={1:["برنامه روزانه","Daily plan"],2:["کارهای من","My tasks"],4:["تحلیل و روند","Analytics"]};
-function tab(n){$("v1").style.display=n===1?"":"none";$("v2").style.display=n===2?"":"none";$("v4").style.display=n===4?"":"none";$("bd").style.display=n===3?"flex":"none";$("ph1").style.display=n===3?"none":"";if(TT[n])$("ph1").textContent=LG(TT[n][0],TT[n][1]);$("tab1").classList.toggle("on",n===1);$("tab2").classList.toggle("on",n===2);$("tab3").classList.toggle("on",n===3);$("sb1").classList.toggle("on",n===1);$("sb2").classList.toggle("on",n===2);$("sb3").classList.toggle("on",n===4);$("bdo").classList.toggle("on",n===3);if(n===4)try{renderAnalytics()}catch(e){}}
-$("tab1").onclick=()=>tab(1);$("tab2").onclick=()=>tab(2);$("tab3").onclick=()=>{bdOpen();tab(3)};$("v2").after($("bd"));$("sb3").onclick=()=>tab(4);$("man").onclick=()=>{$("mn").style.display="none";tab(4)};
+const TT={1:["برنامه روزانه","Daily plan"],2:["کارهای من","My tasks"],4:["تحلیل و روند","Analytics"],5:["اونس طلا","Gold ounce"]};
+function tab(n){$("v1").style.display=n===1?"":"none";$("v2").style.display=n===2?"":"none";$("v4").style.display=n===4?"":"none";$("gd").style.display=n===5?"flex":"none";$("bd").style.display=n===3?"flex":"none";$("ph1").style.display=(n===3||n===5)?"none":"";if(TT[n])$("ph1").textContent=LG(TT[n][0],TT[n][1]);$("tab1").classList.toggle("on",n===1);$("tab2").classList.toggle("on",n===2);$("tab3").classList.toggle("on",n===3);$("sb1").classList.toggle("on",n===1);$("sb2").classList.toggle("on",n===2);$("sb3").classList.toggle("on",n===4);$("sbg").classList.toggle("on",n===5);$("bdo").classList.toggle("on",n===3);if(n!==5){try{goldAuto(false)}catch(e){}try{goldZoomClose()}catch(e){}}if(n===4)try{renderAnalytics()}catch(e){}}
+$("tab1").onclick=()=>tab(1);$("tab2").onclick=()=>tab(2);$("tab3").onclick=()=>{bdOpen();tab(3)};$("v2").after($("bd"));$("v4").after($("gd"));$("sb3").onclick=()=>tab(4);$("sbg").onclick=()=>goldOpen();$("man").onclick=()=>{$("mn").style.display="none";tab(4)};
 renderT();$("thelp").style.display=ld("tdHelpSeen","")==="y"?"none":"block";$("thq").onclick=()=>{const h=$("thelp");h.style.display=h.style.display==="none"?"block":"none"};$("thok").onclick=()=>{$("thelp").style.display="none";sv("tdHelpSeen","y")};
 let wmOpen=[false,false],wmNew=[{n:"",t:["08:00"],c:"کار"},{n:"",t:["08:00"],c:"کار"}];
 function wmPanel(gi){
@@ -1522,11 +1708,16 @@ const O=(p,r)=>({type:"object",properties:p,required:r||[]});
    Primary source: TradingView scanner, PEPPERSTONE:XAUUSD (same feed as
    https://www.tradingview.com/symbols/XAUUSD/?exchange=PEPPERSTONE).
    Fallbacks: CoinGecko PAXG, gold-api.com, then the Worker's /gold proxy. */
-const TV_GOLD="https://scanner.tradingview.com/symbol?symbol=PEPPERSTONE%3AXAUUSD&fields=close,change,change_abs,open,high,low,volume,update_mode,last_update_time,Perf.W,Perf.1M";
+const TV_GOLD="https://scanner.tradingview.com/symbol?symbol=PEPPERSTONE%3AXAUUSD&fields=close,change,change_abs,open,high,low,volume,update_mode,last_update_time,Perf.W,Perf.1M,open%7C1W,high%7C1W,low%7C1W";
 const TV_SRC="TradingView · PEPPERSTONE";
-const GOLD={OD:31.1034768,ttl:30000,x:null,timer:0,last:null,ch24:null,ch7:null,spark:null,err:"",busy:false};
+const GOLD={OD:31.1034768,ttl:30000,x:null,timer:0,last:null,ch24:null,ch7:null,spark:null,err:"",busy:false,week:null,prev:null,hc:null,hcBusy:false,hcTry:0,lvBusy:false,lvTs:0,zc:null,zi:240,fb:{},fbBusy:{},fbTry:{}};
+try{const z=+localStorage.getItem("goldziv");if([5,15,30,240,720,1440].includes(z))GOLD.zi=z}catch(e){}
+try{const b=JSON.parse(localStorage.getItem("goldbars"));if(b&&Array.isArray(b.data)&&b.data.length>1)GOLD.hc={ts:+b.ts||0,data:b.data}}catch(e){}
+try{const f=JSON.parse(localStorage.getItem("goldfine"));if(f&&typeof f==="object")GOLD.fb=f}catch(e){}
 try{const c=JSON.parse(localStorage.getItem("goldlast"));if(c&&+c.usd>0){GOLD.last={usd:+c.usd,ts:+c.ts||Date.now(),src:String(c.src||""),high:+c.high||null,low:+c.low||null,open:+c.open||null,chAbs:c.chAbs==null?null:+c.chAbs};GOLD.ch24=c.ch24==null?null:+c.ch24;GOLD.ch7=c.ch7==null?null:+c.ch7}}catch(e){}
 try{const c=JSON.parse(localStorage.getItem("goldx"));if(c&&+c.fx>0)GOLD.x={fx:+c.fx,g18:+c.g18||0,g24:+c.g24||0,ts:+c.ts||0}}catch(e){}
+try{const w=JSON.parse(localStorage.getItem("goldweek"));if(w&&+w.h>0)GOLD.week={o:+w.o||0,h:+w.h,l:+w.l,c:+w.c||0,wk:+w.wk||0,ts:+w.ts||0}}catch(e){}
+try{const p=JSON.parse(localStorage.getItem("goldprev"));if(p&&+p.h>0)GOLD.prev={h:+p.h,l:+p.l,day:+p.day||0,src:String(p.src||""),ts:+p.ts||0}}catch(e){}
 const goldFx=()=>{if(GOLD.x&&GOLD.x.fx>0)return GOLD.x.fx;const v=parseFloat(localStorage.getItem("goldfx"));return isFinite(v)&&v>0?v:0};
 const goldHist=()=>{
  try{
@@ -1556,8 +1747,9 @@ async function goldOne(u){
   const j=await r.json();
   let o=null;
   if(j&&+j.close>0&&"change" in j&&"change_abs" in j){
+   const wk=+j["high|1W"]>0&&+j["low|1W"]>0?{o:+j["open|1W"]||0,h:+j["high|1W"],l:+j["low|1W"],c:+j.close,wk:goldWeekKey(Date.now()),ts:Date.now()}:null;
    o={usd:+j.close,ts:Date.now(),src:TV_SRC,ch24:gNum(j.change),ch7:gNum(j["Perf.W"]),
-      high:+j.high||null,low:+j.low||null,open:+j.open||null,chAbs:gNum(j.change_abs)};
+      high:+j.high||null,low:+j.low||null,open:+j.open||null,chAbs:gNum(j.change_abs),week:wk};
   }else if(j&&j.market_data&&j.market_data.current_price&&+j.market_data.current_price.usd>0){
    const m=j.market_data,sp=((m.sparkline_7d&&m.sparkline_7d.price)||[]).map(Number).filter(x=>isFinite(x)&&x>0);
    o={usd:+m.current_price.usd,ts:Date.parse(m.last_updated)||Date.now(),src:"CoinGecko · PAXG",
@@ -1575,6 +1767,113 @@ async function goldOne(u){
  }catch(e){clearTimeout(to);throw e}
 }
 function gNum(v){const x=parseFloat(v);return isFinite(x)?x:null}
+/* ---------- weekly map + previous session levels ---------- */
+const GS_OFF=2*3600000;                 /* broker/server day starts 22:00 UTC (UTC+2) */
+const GW_ANCHOR=Date.UTC(1970,0,4,22,0,0); /* Sunday 22:00 UTC → Monday session open */
+function goldSessionKey(ts){const d=new Date(ts+GS_OFF);return d.getUTCFullYear()*10000+(d.getUTCMonth()+1)*100+d.getUTCDate()}
+function goldWeekKey(ts){return Math.floor((ts-GW_ANCHOR)/604800000)}
+function goldDayLabel(k){
+ const y=Math.floor(k/10000),m=Math.floor(k/100)%100-1,dd=k%100;
+ const dt=new Date(Date.UTC(y,m,dd,12));
+ try{return new Intl.DateTimeFormat(ISEN()?"en-GB":"fa-IR",{weekday:"long",day:"numeric",month:"long",timeZone:"UTC"}).format(dt)}catch(e){return String(k)}
+}
+/* PAXG daily/4h candles from CoinGecko: the history fallback for levels and charts. */
+async function goldBars(force){
+ if(!force&&GOLD.hc&&Date.now()-GOLD.hc.ts<600000)return GOLD.hc.data;
+ if(GOLD.hcBusy)return GOLD.hc?GOLD.hc.data:null;
+ if(!force&&GOLD.hcTry&&Date.now()-GOLD.hcTry<60000)return GOLD.hc?GOLD.hc.data:null;
+ if(!navigator.onLine)return GOLD.hc?GOLD.hc.data:null;
+ GOLD.hcTry=Date.now();GOLD.hcBusy=true;
+ const ctl=new AbortController(),to=setTimeout(()=>ctl.abort(),10000);
+ try{
+  const r=await fetch("https://api.coingecko.com/api/v3/coins/pax-gold/ohlc?vs_currency=usd&days=14",{signal:ctl.signal,cache:"no-store"});
+  clearTimeout(to);
+  if(!r.ok)throw new Error("http"+r.status);
+  const j=await r.json();
+  if(!Array.isArray(j)||j.length<6)throw new Error("bad");
+  const raw=j.map(x=>({t:+x[0],o:+x[1],h:+x[2],l:+x[3],c:+x[4]})).filter(x=>x.t>0&&x.o>0&&x.h>0&&x.l>0&&x.c>0).sort((a,b)=>a.t-b.t);
+  if(raw.length<6)throw new Error("bad");
+  const last=raw[raw.length-1],cur=GOLD.last&&GOLD.last.usd>0?GOLD.last.usd:last.c;
+  const k=cur>0&&last.c>0?cur/last.c:1;
+  GOLD.hc={ts:Date.now(),data:raw.map(x=>({t:x.t,o:x.o*k,h:x.h*k,l:x.l*k,c:x.c*k}))};GOLD.hcTry=0;
+  try{localStorage.setItem("goldbars",JSON.stringify(GOLD.hc))}catch(e){}
+ }catch(e){clearTimeout(to)}
+ GOLD.hcBusy=false;
+ return GOLD.hc?GOLD.hc.data:null;
+}
+function goldPrevFromBars(bars){
+ if(!Array.isArray(bars)||bars.length<3)return null;
+ const cur=goldSessionKey(Date.now()),map=new Map();
+ bars.forEach(b=>{
+  const k=goldSessionKey(b.t);if(k>=cur)return;
+  let d=map.get(k);
+  if(!d)map.set(k,{h:b.h,l:b.l,n:1,t:b.t});
+  else{d.h=Math.max(d.h,b.h);d.l=Math.min(d.l,b.l);d.n++;if(b.t<d.t)d.t=b.t}
+ });
+ const pick=n=>{
+  const keys=[...map.keys()].sort((a,b)=>b-a);
+  for(const k of keys){const d=map.get(k);if(d.n>=n)return{h:d.h,l:d.l,day:k,src:"PAXG",ts:Date.now()}}
+  return null;
+ };
+ return pick(3)||pick(1);
+}
+function goldWeekFromBars(bars){
+ if(!Array.isArray(bars)||bars.length<2)return null;
+ const wk=goldWeekKey(Date.now()),cur=bars.filter(b=>goldWeekKey(b.t)===wk);
+ if(!cur.length)return null;
+ return{o:cur[0].o,h:Math.max.apply(null,cur.map(b=>b.h)),l:Math.min.apply(null,cur.map(b=>b.l)),c:cur[cur.length-1].c,wk,ts:Date.now()};
+}
+function goldSnap(o){
+ if(!(o&&o.high>0&&o.low>0))return;
+ const day=goldSessionKey(o.ts||Date.now());
+ let s=null;try{s=JSON.parse(localStorage.getItem("goldday"))}catch(e){}
+ if(s&&+s.day!==day&&+s.h>0&&+s.l>0&&(!GOLD.prev||+GOLD.prev.day<+s.day)){
+  GOLD.prev={h:+s.h,l:+s.l,day:+s.day,src:"TradingView",ts:Date.now()};
+  try{localStorage.setItem("goldprev",JSON.stringify(GOLD.prev))}catch(e){}
+ }
+ try{localStorage.setItem("goldday",JSON.stringify({day,o:o.open||null,h:o.high,l:o.low,ts:o.ts||Date.now()}))}catch(e){}
+}
+async function goldLevelsFetch(force){
+ if(GOLD.lvBusy)return;
+ const wk=goldWeekKey(Date.now()),curDay=goldSessionKey(Date.now());
+ const okW=GOLD.week&&+GOLD.week.h>0&&(+GOLD.week.wk===wk);
+ const okP=GOLD.prev&&+GOLD.prev.h>0&&+GOLD.prev.l>0&&GOLD.prev.src!=="TradingView"&&+GOLD.prev.day<curDay;
+ if(!force&&okW&&okP&&Date.now()-(GOLD.lvTs||0)<900000)return;
+ GOLD.lvBusy=true;
+ try{
+  const bars=await goldBars(force);
+  if(bars){
+   if(!okW){const w=goldWeekFromBars(bars);if(w){GOLD.week=w;try{localStorage.setItem("goldweek",JSON.stringify(w))}catch(e){}}}
+   if(!okP){const p=goldPrevFromBars(bars);if(p&&(!GOLD.prev||GOLD.prev.src==="TradingView"||+p.day>=+GOLD.prev.day)){GOLD.prev=p;try{localStorage.setItem("goldprev",JSON.stringify(p))}catch(e){}}}
+   GOLD.lvTs=Date.now();
+  }
+ }catch(e){}
+ GOLD.lvBusy=false;
+ goldWeeklyPaint();goldPrevPaint();
+}
+function goldWeeklyPaint(){
+ const w=GOLD.week,d=GOLD.last;
+ if(!$("gdwo"))return;
+ $("gdwo").textContent=w&&w.o>0?gfmt(w.o,2):"—";
+ $("gdwh").textContent=w&&w.h>0?gfmt(w.h,2):"—";
+ $("gdwl").textContent=w&&w.l>0?gfmt(w.l,2):"—";
+ const op=$("gwpo"),np=$("gwpn");
+ if(w&&w.h>w.l&&w.o>0){op.style.display="";op.style.left=(Math.max(0,Math.min(100,(w.o-w.l)/(w.h-w.l)*100))).toFixed(2)+"%"}else op.style.display="none";
+ if(w&&w.h>w.l&&d&&d.usd>0){np.style.display="";np.style.left=(Math.max(0,Math.min(100,(d.usd-w.l)/(w.h-w.l)*100))).toFixed(2)+"%"}else np.style.display="none";
+}
+function goldPrevPaint(){
+ const p=GOLD.prev,d=GOLD.last;
+ if(!$("gdpv"))return;
+ $("gdpv").textContent=p&&p.h>0?gfmt(p.h,2):"—";
+ $("gdpl").textContent=p&&p.l>0?gfmt(p.l,2):"—";
+ const dist=v=>{
+  if(!(d&&d.usd>0&&v>0))return "";
+  const x=v-d.usd;return (x>0?"+":x<0?"−":"")+gfmt(Math.abs(x),2);
+ };
+ $("gdpvd").textContent=dist(p&&p.h);
+ $("gdpld").textContent=dist(p&&p.l);
+ $("gdpdate").textContent=p&&p.day?LG("سشن "+goldDayLabel(p.day),"Session "+goldDayLabel(p.day)):LG("در حال دریافت…","Loading…");
+}
 function goldSources(){
  const w=String(AG.url||"").replace(/\/+$/,"");
  return {tv:TV_GOLD,direct:[
@@ -1610,9 +1909,11 @@ async function goldFetch(force){
   if(!o)throw new Error("network");
   GOLD.last={usd:o.usd,ts:o.ts,src:o.src,high:o.high||null,low:o.low||null,open:o.open||null,chAbs:o.chAbs==null?null:o.chAbs};
   GOLD.ch24=o.ch24==null?null:o.ch24;GOLD.ch7=o.ch7==null?null:o.ch7;
+  if(o.week&&+o.week.h>0){GOLD.week=o.week;try{localStorage.setItem("goldweek",JSON.stringify(o.week))}catch(e){}}
   if(o.spark)GOLD.spark=o.spark;
+  goldSnap(o);
   goldMerge([{t:o.ts,u:o.usd}]);
-  goldPaint();goldSpark();
+  goldPaint();goldSpark();goldLevelsFetch(false);
   let x=o.x||null;
   if(!x)x=await tgjuDirect();
   if(x&&x.fx>0){GOLD.x=x;try{localStorage.setItem("goldx",JSON.stringify(x))}catch(e){}}
@@ -1639,7 +1940,6 @@ function gPaintCh(el,v){
 function goldPaint(){
  const d=GOLD.last;
  $("gdusd").textContent=d?gfmt(d.usd,2):"—";
- $("gdg").textContent=d?gfmt(d.usd/GOLD.OD,2):"—";
  $("gdopen").textContent=d&&d.open?gfmt(d.open,2):"—";
  $("gdhigh").textContent=d&&d.high?gfmt(d.high,2):"—";
  $("gdlow").textContent=d&&d.low?gfmt(d.low,2):"—";
@@ -1651,7 +1951,7 @@ function goldPaint(){
   :GOLD.err?LG("دریافت قیمت ممکن نشد. اتصال اینترنت را بررسی کن؛ آخرین قیمت ذخیره‌شده نمایش داده می‌شود.","Could not fetch the price. Check your connection; the last saved price is shown.")
   :LG("برای دریافت قیمت، «به‌روزرسانی» را بزن.","Tap Refresh to fetch the price.");
  $("gdr").disabled=GOLD.busy;
- goldLevels();
+ goldLevels();goldWeeklyPaint();goldPrevPaint();
 }
 /* Round levels of the ounce — same rule as the Round Levels MT4 indicator (auto ≈0.5% of price → 1/2/2.5/5×10ⁿ, or a fixed step). */
 const goldLvStep=()=>{const m=+ld("goldrlm",0)||0,d=GOLD.last,R=window.DailyRoundLevels;if(m>0)return{step:m,auto:false};if(!d||!R)return{step:0,auto:true};
@@ -1703,10 +2003,77 @@ function goldLocalCandles(iv){
  pts.forEach(p=>{const k=Math.floor(p.t/ms),c=m.get(k);if(!c)m.set(k,{t:k*ms,o:p.u,h:p.u,l:p.u,c:p.u});else{c.h=Math.max(c.h,p.u);c.l=Math.min(c.l,p.u);c.c=p.u}});
  return Array.from(m.values()).slice(-48);
 }
+function goldIvLabel(min){
+ const m=+min||15;
+ if(m>=1440)return fa(Math.round(m/1440))+LG(" روزه","d");
+ if(m>=60)return fa(Math.round(m/60))+LG(" ساعته","h");
+ return fa(m)+LG(" دقیقه","min");
+}
+function goldAgg(bars,min){
+ const ms=(+min||240)*60000,map=new Map();
+ (bars||[]).forEach(b=>{
+  const k=Math.floor(b.t/ms)*ms;let c=map.get(k);
+  if(!c)map.set(k,{t:k,o:b.o,h:b.h,l:b.l,c:b.c});
+  else{c.h=Math.max(c.h,b.h);c.l=Math.min(c.l,b.l);c.c=b.c}
+ });
+ return Array.from(map.values()).sort((a,b)=>a.t-b.t);
+}
+/* 5/15/30-minute candles built from CoinGecko's 5-minute price series: only
+   used by the big chart when the candle Worker is not configured. */
+async function goldFineBars(iv,force){
+ iv=[5,15,30].includes(+iv)?+iv:15;
+ if(!force&&GOLD.fb[iv]&&Date.now()-GOLD.fb[iv].ts<600000)return GOLD.fb[iv].data;
+ if(GOLD.fbBusy[iv]||!navigator.onLine)return GOLD.fb[iv]?GOLD.fb[iv].data:null;
+ if(!force&&GOLD.fbTry[iv]&&Date.now()-GOLD.fbTry[iv]<60000)return GOLD.fb[iv]?GOLD.fb[iv].data:null;
+ GOLD.fbTry[iv]=Date.now();GOLD.fbBusy[iv]=true;
+ const ctl=new AbortController(),to=setTimeout(()=>ctl.abort(),10000);
+ try{
+  const r=await fetch("https://api.coingecko.com/api/v3/coins/pax-gold/market_chart?vs_currency=usd&days=1",{signal:ctl.signal,cache:"no-store"});
+  clearTimeout(to);
+  if(!r.ok)throw new Error("http"+r.status);
+  const j=await r.json();
+  const pts=Array.isArray(j&&j.prices)?j.prices.map(x=>({t:+x[0],p:+x[1]})).filter(x=>x.t>0&&x.p>0).sort((a,b)=>a.t-b.t):[];
+  if(pts.length<6)throw new Error("bad");
+  const last=pts[pts.length-1].p,cur=GOLD.last&&GOLD.last.usd>0?GOLD.last.usd:last;
+  const k=cur>0&&last>0?cur/last:1,ms=iv*60000,map=new Map();
+  pts.forEach(x=>{
+   const b=Math.floor(x.t/ms)*ms,p=x.p*k;let c=map.get(b);
+   if(!c)map.set(b,{t:b,o:p,h:p,l:p,c:p});
+   else{c.h=Math.max(c.h,p);c.l=Math.min(c.l,p);c.c=p}
+  });
+  const data=Array.from(map.values()).sort((a,b)=>a.t-b.t).slice(-48);
+  if(data.length<2)throw new Error("bad");
+  GOLD.fb[iv]={ts:Date.now(),data};GOLD.fbTry[iv]=0;
+  try{localStorage.setItem("goldfine",JSON.stringify(GOLD.fb))}catch(e){}
+ }catch(e){clearTimeout(to)}
+ GOLD.fbBusy[iv]=false;
+ return GOLD.fb[iv]?GOLD.fb[iv].data:null;
+}
 document.querySelectorAll("#gdivs button").forEach(b=>b.onclick=()=>{sv("goldiv",+b.dataset.iv||15);goldSpark();goldCandles(goldIv(),false).then(goldSpark)});
-function goldSpark(){
+async function goldChartData(force,iv,fine){
+ iv=+iv||goldIv();
+ if(iv===5||iv===15||iv===30){
+  let c=GOLD.cc[iv];
+  if((!c||!c.data||c.data.length<2)&&!GOLD.ccBusy[iv]){try{await goldCandles(iv,force)}catch(e){}c=GOLD.cc[iv]}
+  if(c&&c.data&&c.data.length>1)return{data:c.data,src:"Twelve Data",min:iv};
+  if(fine){
+   const fb=await goldFineBars(iv,force);
+   if(fb&&fb.length>1)return{data:fb,src:LG("CoinGecko · PAXG (تقریبی)","CoinGecko · PAXG (approx.)"),min:iv};
+  }
+ }
+ const bars=await goldBars(force);
+ if(bars&&bars.length>1){
+  if(iv>240){
+   const agg=goldAgg(bars,iv);
+   if(agg.length>1)return{data:agg,src:LG("CoinGecko · PAXG (تقریبی)","CoinGecko · PAXG (approx.)"),min:iv};
+  }
+  return{data:bars,src:LG("CoinGecko · PAXG (تقریبی)","CoinGecko · PAXG (approx.)"),min:240};
+ }
+ return{data:[],src:"",min:iv};
+}
+async function goldSpark(){
  const el=$("gdspark");if(!el)return;
- const iv=goldIv(),wc=GOLD.cc[iv],cs=wc?wc.data:goldLocalCandles(iv);
+ const iv=goldIv(),c=await goldChartData(false,iv,false),cs=c.data||[];
  document.querySelectorAll("#gdivs button").forEach(b=>b.classList.toggle("on",+b.dataset.iv===iv));
  if(cs.length<2){
   const er=GOLD.ccErr[iv],busy=GOLD.ccBusy[iv];
@@ -1726,9 +2093,111 @@ function goldSpark(){
   g+='<line x1="'+x.toFixed(1)+'" x2="'+x.toFixed(1)+'" y1="'+y(c.h)+'" y2="'+y(c.l)+'" style="stroke:'+col+'" stroke-width="1.2" vector-effect="non-scaling-stroke"/>'
    +'<rect x="'+(x-bw/2).toFixed(1)+'" y="'+yt+'" width="'+bw.toFixed(1)+'" height="'+bh.toFixed(1)+'" style="fill:'+col+'"/>';
  });
- const srcl=wc?"Twelve Data":LG("ذخیره‌شده در اپ","saved in app");
  el.innerHTML='<svg viewBox="0 0 '+w+' '+ht+'" preserveAspectRatio="none" class="gcandle" aria-hidden="true">'+g+'</svg>'
-  +'<div class="goldts" style="text-align:center;direction:ltr">'+cs.length+' × '+iv+LG(" دقیقه","min")+' · '+srcl+'</div>';
+  +'<div class="goldts" style="text-align:center;direction:ltr">'+fa(cs.length)+' × '+goldIvLabel(c.min)+' · '+c.src+'</div>';
+}
+/* ---------- big gold chart (weekly map + prev session lines) ---------- */
+let gzOpen=false;
+function goldZoomLevels(){
+ const w=GOLD.week,p=GOLD.prev,d=GOLD.last,a=[];
+ if(w&&w.h>0)a.push({v:w.h,label:LG("سقف هفته","Week high"),c:"#ff6b6b",d:""});
+ if(w&&w.o>0)a.push({v:w.o,label:LG("بازگشایی هفته","Week open"),c:"#ffb547",d:"5 4"});
+ if(w&&w.l>0)a.push({v:w.l,label:LG("کف هفته","Week low"),c:"#3ee6a4",d:""});
+ if(p&&p.h>0)a.push({v:p.h,label:LG("سقف سشن قبل","Prev session high"),c:"#7aa2ff",d:"2 3"});
+ if(p&&p.l>0)a.push({v:p.l,label:LG("کف سشن قبل","Prev session low"),c:"#b388ff",d:"2 3"});
+ if(d&&d.usd>0)a.push({v:d.usd,label:LG("قیمت لحظه‌ای","Live price"),c:"#ffd166",d:"",live:true});
+ return a;
+}
+function goldZoomOpen(){
+ const z=$("gdz");if(!z)return;
+ gzOpen=true;z.classList.add("on");document.body.style.overflow="hidden";
+ $("gzsrc").textContent=LG("در حال آماده‌سازی چارت…","Preparing the chart…");
+ goldZoomPaint(true);
+}
+function goldZoomClose(){
+ const z=$("gdz");if(!z)return;
+ gzOpen=false;z.classList.remove("on");document.body.style.overflow="";
+}
+async function goldZoomPaint(force){
+ if(!gzOpen)return;
+ const c=await goldChartData(false,GOLD.zi,true);
+ if(!gzOpen)return;
+ GOLD.zc=c;drawGoldZoom();
+}
+function goldZoomMark(){
+ document.querySelectorAll("[data-ziv]").forEach(b=>b.classList.toggle("on",+b.dataset.ziv===GOLD.zi));
+}
+function goldZoomPick(iv,open){
+ GOLD.zi=+iv||240;
+ try{localStorage.setItem("goldziv",String(GOLD.zi))}catch(e){}
+ goldZoomMark();if(open)goldZoomOpen();
+}
+function goldZoomFromCard(id){
+ let iv=GOLD.zi;
+ if(id==="gdwcard"&&![240,720,1440].includes(iv))iv=240;
+ if(id==="gdpcard"&&![15,30,240].includes(iv))iv=15;
+ if(id==="gdchartcard")iv=goldIv();
+ if(!(iv>0))iv=240;
+ GOLD.zi=iv;
+ try{localStorage.setItem("goldziv",String(iv))}catch(e){}
+ goldZoomMark();goldZoomOpen();
+}
+function drawGoldZoom(){
+ const host=$("gzchart");if(!host)return;
+ const c=GOLD.zc,cs=(c&&c.data)||[];
+ if(cs.length<2){
+  host.innerHTML='<div class="gznone">'+LG("کندل کافی برای نمایش نیست. Worker کندل را تنظیم کن یا اینترنت را بررسی کن.","Not enough candles. Configure the candle Worker or check your connection.")+'</div>';
+  $("gzsrc").textContent="";return;
+ }
+ const W=Math.max(260,Math.round(host.clientWidth)),H=Math.max(220,Math.round(host.clientHeight));
+ const L=10,R=80,T=12,B=22,iw=Math.max(40,W-L-R),ih=Math.max(40,H-T-B);
+ let mn=Infinity,mx=-Infinity;
+ cs.forEach(x=>{if(x.l<mn)mn=x.l;if(x.h>mx)mx=x.h});
+ const lv=goldZoomLevels();
+ lv.forEach(l=>{if(+l.v>0){if(l.v<mn)mn=l.v;if(l.v>mx)mx=l.v}});
+ if(!isFinite(mn)||!isFinite(mx)||mx<=mn){mn=mn||0;mx=mn+1}
+ const pad=(mx-mn)*.06;mn-=pad;mx+=pad;
+ const y=v=>T+(mx-v)/(mx-mn)*ih;
+ const slot=iw/cs.length,bw=Math.max(1,Math.min(14,slot*.64));
+ let g="";
+ for(let i=0;i<=4;i++){
+  const v=mn+(mx-mn)*i/4,yy=y(v).toFixed(1);
+  g+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+yy+'" y2="'+yy+'" stroke="rgba(255,255,255,.07)" stroke-width="1"/>';
+  g+='<text x="'+(W-4)+'" y="'+(+yy+3.5).toFixed(1)+'" text-anchor="end" font-size="10" fill="var(--mute)">'+gfmt(v,0)+'</text>';
+ }
+ const w=GOLD.week;
+ if(w&&w.h>0&&w.l>0&&w.h>w.l)g+='<rect x="'+L+'" y="'+y(w.h).toFixed(1)+'" width="'+iw+'" height="'+Math.max(1,y(w.l)-y(w.h)).toFixed(1)+'" fill="rgba(255,181,71,.06)"/>';
+ const p=GOLD.prev;
+ if(p&&p.h>0&&p.l>0&&p.h>p.l)g+='<rect x="'+L+'" y="'+y(p.h).toFixed(1)+'" width="'+iw+'" height="'+Math.max(1,y(p.l)-y(p.h)).toFixed(1)+'" fill="rgba(122,162,255,.05)"/>';
+ cs.forEach((x,i)=>{
+  const cx=L+slot*(i+.5),up=x.c>=x.o,col=up?"var(--acc)":"var(--no)";
+  const yt=y(Math.max(x.o,x.c)),yb=y(Math.min(x.o,x.c)),bh=Math.max(1,yb-yt);
+  g+='<line x1="'+cx.toFixed(1)+'" x2="'+cx.toFixed(1)+'" y1="'+y(x.h).toFixed(1)+'" y2="'+y(x.l).toFixed(1)+'" stroke="'+col+'" stroke-width="1" opacity=".85"/>';
+  g+='<rect x="'+(cx-bw/2).toFixed(1)+'" y="'+yt.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+bh.toFixed(1)+'" fill="'+col+'"/>';
+ });
+ const items=lv.filter(l=>+l.v>0).map(l=>Object.assign({},l,{yv:y(l.v)})).sort((a,b)=>a.yv-b.yv);
+ let lastY=-99;
+ items.forEach(it=>{it.ly=Math.max(T+7,Math.min(H-B-5,Math.max(it.yv,lastY+13)));lastY=it.ly});
+ items.forEach(it=>{
+  g+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+it.yv.toFixed(1)+'" y2="'+it.yv.toFixed(1)+'" stroke="'+it.c+'" stroke-width="'+(it.live?2:1.2)+'" stroke-dasharray="'+(it.d||"")+'" opacity="'+(it.live?1:.9)+'"/>';
+  if(it.live){
+   g+='<rect x="'+(W-70)+'" y="'+(it.ly-9).toFixed(1)+'" width="66" height="18" rx="5" fill="'+it.c+'"/>';
+   g+='<text x="'+(W-6)+'" y="'+(it.ly+3.5).toFixed(1)+'" text-anchor="end" font-size="10" font-weight="800" fill="#20160a">'+gfmt(it.v,2)+'</text>';
+  }else{
+   g+='<text x="'+(W-4)+'" y="'+(it.ly+3.5).toFixed(1)+'" text-anchor="end" font-size="10" font-weight="600" fill="'+it.c+'">'+gfmt(it.v,0)+'</text>';
+  }
+ });
+ const ticks=Math.min(4,cs.length);
+ for(let i=0;i<ticks;i++){
+  const idx=Math.round(i*(cs.length-1)/Math.max(1,ticks-1)),x=L+slot*(idx+.5);
+  g+='<line x1="'+x.toFixed(1)+'" x2="'+x.toFixed(1)+'" y1="'+(H-B)+'" y2="'+(H-B+4)+'" stroke="rgba(255,255,255,.15)"/>';
+  g+='<text x="'+x.toFixed(1)+'" y="'+(H-6)+'" text-anchor="middle" font-size="9" fill="var(--mute)">'+fmt({month:"short",day:"numeric",hour:"2-digit",minute:"2-digit"},new Date(cs[idx].t))+'</text>';
+ }
+ host.innerHTML='<svg viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'">'+g+'</svg>';
+ $("gzleg").innerHTML=lv.map(l=>'<span><i style="background:'+l.c+'"></i>'+l.label+'</span>').join("");
+ $("gzsrc").textContent=c.src+' · '+goldIvLabel(c.min);
+ $("gzfootl").textContent=LG("خطوط: سقف/بازگشایی/کف هفته و سقف/کف سشن روز قبل","Lines: week high/open/low and previous session high/low");
+ $("gzfootr").textContent=fa(cs.length)+LG(" کندل"," candles");
 }
 function goldToman(){
  const x=GOLD.x,d=GOLD.last,tf={month:"short",day:"numeric",hour:"2-digit",minute:"2-digit"},fx=goldFx(),tgju=x&&x.fx>0;
@@ -1743,18 +2212,30 @@ function goldAuto(on){
  if(on)GOLD.timer=setInterval(()=>{if(!document.hidden){goldFetch(true);goldCandles(goldIv(),false).then(goldSpark)}},45000);
 }
 function goldOpen(){
- $("mn").style.display="none";$("gd").style.display="flex";
- $("gdfx").value=localStorage.getItem("goldfx")||"";$("gdfxm").textContent="";
- goldPaint();goldSpark();goldToman();goldFetch(true);goldAuto(true);goldCandles(goldIv(),false).then(goldSpark);
+ $("mn").style.display="none";tab(5);
+ goldPaint();goldSpark();goldToman();goldFetch(true);goldLevelsFetch(true);goldAuto(true);goldCandles(goldIv(),false).then(goldSpark);
 }
 function gcCfgOpen(){
- $("mn").style.display="none";$("gd").style.display="none";goldAuto(false);
+ $("mn").style.display="none";
  $("gccu").value=GC.url;$("gcct").value=GC.tok;$("gccm").textContent="";$("gcc").style.display="flex";
 }
 $("mgd").onclick=()=>{if(agHold){agHold=false;return}goldOpen()};
+document.querySelectorAll("[data-ziv]").forEach(b=>b.onclick=()=>goldZoomPick(+b.dataset.ziv,true));
+goldZoomMark();
+["gdwcard","gdpcard","gdchartcard","gdlvcard"].forEach(id=>{
+ const el=$(id);if(!el)return;
+ el.addEventListener("click",e=>{if(e.target.closest("button"))return;goldZoomFromCard(id)});
+ el.addEventListener("keydown",e=>{
+  if(e.target.closest("button"))return;
+  if(e.key==="Enter"||e.key===" "){e.preventDefault();goldZoomFromCard(id)}
+ });
+});
+$("gzx").onclick=goldZoomClose;
+$("gdz").addEventListener("click",e=>{if(e.target===$("gdz"))goldZoomClose()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&gzOpen)goldZoomClose()});
+window.addEventListener("resize",()=>{if(gzOpen)drawGoldZoom()});
 setTimeout(()=>{if(!document.hidden)goldFetch(false)},4000);
 setInterval(()=>{if(!document.hidden&&!GOLD.timer)goldFetch(true)},300000);
-$("gdx").onclick=()=>{$("gd").style.display="none";goldAuto(false)};
 $("gccx").onclick=()=>{$("gcc").style.display="none"};
 $("gccs").onclick=()=>{
  const u=$("gccu").value.trim(),t=$("gcct").value.trim();
@@ -1775,9 +2256,6 @@ $("gcctest").onclick=async()=>{
 };
 $("gdr").onclick=()=>goldFetch(true);
 $("gdclr").onclick=()=>{try{localStorage.removeItem("goldhist2");localStorage.removeItem("goldhist")}catch(e){}GOLD.spark=null;goldSpark();goldPaint()};
-const gdfxSave=()=>{const v=Math.round(parseFloat(String($("gdfx").value).replace(/[^\d.]/g,"")));try{v>0?localStorage.setItem("goldfx",String(v)):localStorage.removeItem("goldfx")}catch(e){}$("gdfx").value=v>0?String(v):"";$("gdfxm").textContent=v>0?LG("ذخیره شد؛ وقتی TGJU در دسترس نباشد استفاده می‌شود.","Saved; used when TGJU is unavailable."):LG("نرخ دستی پاک شد.","Manual rate cleared.");goldToman()};
-$("gdfxs").onclick=gdfxSave;
-$("gdfx").onkeydown=e=>{if(e.key==="Enter")gdfxSave()};
 const AGT=[
 {name:"get_today",description:"وضعیت کارهای امروز کاربر: id، نام، ساعت‌ها، وضعیت (y=انجام شد، x=انجام نشد، null=بی‌جواب) و دلیل.",input_schema:O({})},
 {name:"get_stats",description:"آمار چند روز اخیر: درصد انجام هر روز، تعداد Yes/No هر کار و زنجیره‌ی روزهای خوب. برای گزارش هفتگی days=7 بده.",input_schema:O({days:{type:"integer",description:"تعداد روز، ۱ تا ۶۰"}})},
@@ -1835,6 +2313,7 @@ list_contacts:()=>({names:Object.keys(agCt())}),
 get_gold_price:async()=>{
  const d=await goldFetch(false);
  if(!d)return{error:"قیمت در دسترس نیست",detail:GOLD.err||"network",note:"اینترنت یا منبع قیمت را بررسی کن"};
+ await goldLevelsFetch(false);
  const fx=goldFx(),c24=GOLD.ch24!=null?GOLD.ch24:goldChange(24),c7=GOLD.ch7!=null?GOLD.ch7:goldChange(168),o={
   usd_per_ounce:+d.usd.toFixed(2),
   usd_per_gram:+(d.usd/GOLD.OD).toFixed(2),
@@ -1849,6 +2328,8 @@ get_gold_price:async()=>{
   note:"Ounce: TradingView (PEPPERSTONE:XAUUSD). Toman prices: TGJU. Not a shop buy/sell quote."
  };
  const rl=goldRound();if(rl)o.round_levels={step:rl.step,auto:rl.auto,above:rl.above,below:rl.below,nearest:rl.nearest,note:"Round (psychological) levels, Round Levels indicator rule"};
+ if(GOLD.week&&GOLD.week.h>0)o.weekly_map={week_open:+GOLD.week.o.toFixed(2),week_high:+GOLD.week.h.toFixed(2),week_low:+GOLD.week.l.toFixed(2),note:"Current week (broker day starts 22:00 UTC); source: TradingView or PAXG history"};
+ if(GOLD.prev&&GOLD.prev.h>0){const k=GOLD.prev.day,ss=k?String(k).replace(/^(\d{4})(\d{2})(\d{2})$/,"$1-$2-$3"):null;o.prev_session={high:+GOLD.prev.h.toFixed(2),low:+GOLD.prev.l.toFixed(2),session_date:ss,note:"High/low of the previous trading session"}}
  if(GOLD.x&&GOLD.x.fx)o.tgju_toman={usd_rate:GOLD.x.fx,gram_18k:GOLD.x.g18||null,gram_24k:GOLD.x.g24||null,updated_at:GOLD.x.ts?new Date(GOLD.x.ts).toISOString():null};
  else if(fx)o.manual_toman={usd_rate:fx,toman_per_gram:Math.round(d.usd/GOLD.OD*fx),toman_per_ounce:Math.round(d.usd*fx),note:"User-entered fallback rate"};
  return o;
@@ -2014,6 +2495,7 @@ function holdCfg(el,pre,open){
    try{navigator.vibrate&&navigator.vibrate(30)}catch(_){}
    if(pre)pre();
    (open||agCfgOpen)();
+   setTimeout(()=>{agHold=false},900);
   },5000);
  });
  ["pointerup","pointerleave","pointercancel"].forEach(ev=>el.addEventListener(ev,stop));
@@ -2022,7 +2504,7 @@ function holdCfg(el,pre,open){
 $("mag").onclick=()=>{if(agHold){agHold=false;return}agOpen()};
 holdCfg($("mag"));
 holdCfg($("mgd"),null,gcCfgOpen);
-holdCfg($("gd").querySelector(".head h2"),null,gcCfgOpen);
+holdCfg($("gdt"),null,gcCfgOpen);
 holdCfg($("ag").querySelector(".head h2"),()=>{$("ag").style.display="none";if(window.speechSynthesis)speechSynthesis.cancel()});
 $("agx").onclick=()=>{$("ag").style.display="none";if(window.speechSynthesis)speechSynthesis.cancel();if(agRec&&agMic)agRec.stop()};
 $("agclr").onclick=()=>{AG.h=[];agRestored=true;try{localStorage.removeItem("aghist")}catch(e){}$("agl").innerHTML="";agAdd("a",LG("گفتگو پاک شد.","Chat cleared."))};
