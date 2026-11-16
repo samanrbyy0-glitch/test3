@@ -746,6 +746,22 @@ main{min-width:0;padding:0 0 70px;margin:0;display:flex;flex-direction:column;ga
 #gd .goldgrid:not(.split) b{font-size:1.05rem}
 #gd .goldfx input{border-radius:14px}
 @media(max-width:520px){#gd .goldbig b{font-size:2.5rem}#gd .goldhead .pc{max-width:55vw}}
+
+/* ---------- heatmap: fit phone width, no sideways scroll ---------- */
+.agrid>.card{min-width:0}
+.heat{gap:2px;overflow:hidden;padding:2px 0 6px;width:100%}
+.hweek{gap:2px;flex:1 1 0;min-width:0;max-width:none}
+.hc{border-radius:3px}
+.hc:hover{transform:none}
+@media(min-width:700px){.heat{gap:4px}.hweek{gap:4px;max-width:26px}.hc{border-radius:5px}}
+
+/* ---------- phone home: same order as desktop, tasks first ---------- */
+@media(max-width:899px){
+ #v1{gap:12px}
+ #v1 .colM,#v1 .colS{display:contents}
+ #weekc{order:0}#addc{order:1}#list{order:2}#notecard{order:3}#notescard{order:4}#msg{order:5}
+ #quotec{order:6}#todayc{order:7}#duo{order:8}#goalc{order:9}#calc{order:10}
+}
 </style></head><body><div class="daily-root">
 <div class="app"><aside class="side"><button class="ic" id="menu" aria-label="منو" title="منو">✦</button><nav id="snav"><button class="ic on" id="sb1" aria-label="برنامه روزانه" title="برنامه روزانه">⌂</button><button class="ic" id="sb2" aria-label="کارهای من" title="کارهای من">☑</button><button class="ic" id="sb3" aria-label="تحلیل و روند" title="تحلیل و روند">📊</button><button class="ic" id="sbg" aria-label="اونس طلا" title="اونس طلا">🥇</button></nav><button class="ic" id="bdo" aria-label="تغییرات بدن" title="تغییرات بدن">◐</button></aside><main>
 <div class="tb"><div class="seg"><button id="tmD" aria-label="تم تیره">☾</button><button id="tmL" aria-label="تم روشن">☀</button></div><input id="sq" class="sq" type="search" placeholder="جستجوی کار…"><button class="bell" id="bell" aria-label="کارهای مانده">🔔<b id="bb"></b></button></div>
@@ -759,14 +775,14 @@ main{min-width:0;padding:0 0 70px;margin:0;display:flex;flex-direction:column;ga
  <div class="week" id="week"></div>
  <div class="skip" id="skip"><button class="lt" id="skb">📊 کدام مانع‌ها تکرار شدند؟</button></div>
 </div>
+<div class="card" id="weekc"><div class="wk"><button class="pill" id="wpv">هفته قبل</button><div style="text-align:center"><h2 id="ttl"></h2><button class="pill" id="gt" style="display:none;margin-top:4px;padding:2px 12px;font-size:.75rem">↺ امروز</button></div><button class="pill" id="wnx">هفته بعد</button></div><div class="days" id="days"></div></div>
+<div id="list"></div>
 <div class="duo" id="duo">
 <div class="card" id="ringc"><h2>پیشرفت روز انتخابی</h2><div class="rw"><svg width="150" height="150" viewBox="0 0 140 140"><circle cx="70" cy="70" r="58" fill="none" stroke="var(--line)" stroke-width="12"/><circle id="arc" cx="70" cy="70" r="58" fill="none" stroke="var(--warn)" stroke-width="12" stroke-linecap="round" transform="rotate(-90 70 70)" stroke-dasharray="364.4" stroke-dashoffset="364.4" style="transition:stroke-dashoffset .5s"/></svg><div class="rn" id="rn"></div></div><div class="ai" id="ai"></div></div>
 <div class="card" id="scorec"><div class="pc">امتیاز کل</div><div class="big" id="sc"></div><div class="pc">هر Yes ۲۰ امتیاز</div></div>
 </div>
 <div class="card" id="goalc"><h2>هدف من</h2><textarea class="note" id="goal" placeholder="هدف اصلی‌ات را اینجا بنویس…"></textarea></div>
 <div class="card" id="addc" style="display:none"><h2>کار جدید</h2><input id="an" class="reason" placeholder="اسم کار..." style="margin-top:0"><div class="pc" style="margin-top:10px">این کار در کدام دسته باشد؟</div><div class="catp" id="catp"></div><div class="times" id="at"></div><div class="head" style="margin-top:12px"><button class="lt on" id="as">ذخیره</button><button class="lt" id="ac">لغو</button></div></div>
-<div class="card" id="weekc"><div class="wk"><button class="pill" id="wpv">هفته قبل</button><div style="text-align:center"><h2 id="ttl"></h2><button class="pill" id="gt" style="display:none;margin-top:4px;padding:2px 12px;font-size:.75rem">↺ امروز</button></div><button class="pill" id="wnx">هفته بعد</button></div><div class="days" id="days"></div></div>
-<div id="list"></div>
 <div class="card" id="notecard" style="display:none"><h2>یادداشت شبانه</h2><div class="pc">امروز چی یاد گرفتم؟ فردا چی رو بهتر کنم؟</div><textarea class="note" id="note" placeholder="بنویس..."></textarea></div>
 <div id="calc" style="display:none"><h2>۳۰ روز اخیر</h2><div class="cal" id="cal"></div></div>
 <div class="card" id="notescard" style="display:none"><h2>یادداشت‌های اخیر</h2><div id="notes"></div></div>
